@@ -1,0 +1,137 @@
+.header {
+    margin-top: 16px;
+    margin-bottom: 42px;
+
+    // .header__container
+
+    &__container {
+    }
+
+    // .header__body
+
+    &__body {
+    }
+
+    // .header__top
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba($color: $blue, $alpha: 0.2);
+    }
+
+    // .header__logo
+
+    &__logo {
+    }
+
+    // .header__search
+
+    &__search {
+        margin-left: 6px;
+        width: 100%;
+        max-width: 474px;
+        height: 56px;
+        border: 1px solid $gray-light;
+        border-radius: 100px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+
+        input {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+            color: $gray-light;
+            flex: 1 1 auto;
+
+            &::placeholder {
+                color: $gray-light;
+            }
+        }
+
+        button {
+            background: unset;
+
+            img {
+            }
+        }
+    }
+
+    // .header__actions
+
+    &__actions {
+        display: flex;
+        align-items: center;
+    }
+
+    // .header__phone
+
+    &__phone {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        & > :first-child {
+            display: block;
+            text-align: center;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.71;
+            text-transform: uppercase;
+            color: $gray-dark;
+        }
+
+        & > :last-child {
+            display: block;
+            text-align: center;
+
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.33;
+            color: $yellow;
+            white-space: nowrap;
+        }
+    }
+
+    // .header__quote
+
+    &__quote {
+        margin-left: 91px;
+    }
+
+    // .header__menu
+
+    &__menu {
+        padding-top: 29px;
+
+        nav {
+            margin: 0 auto;
+            max-width: 1030px;
+            width: 100%;
+
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                li {
+                    a {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 17px;
+                        line-height: 1.41;
+                        color: $gray-dark;
+                    }
+                }
+            }
+        }
+    }
+}

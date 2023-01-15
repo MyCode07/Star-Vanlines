@@ -1,0 +1,114 @@
+.review {
+    position: relative;
+    padding-top: 300px;
+    padding-bottom: 272px;
+    margin-bottom: 100px;
+    
+    // .review-bgc-img
+
+    &-bgc-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    // .review__container
+
+    &__container {
+    }
+
+    // .review__body
+
+    &__body {
+    }
+
+    // .review__flex
+
+    &__flex {
+        display: flex;
+        justify-content: center;
+
+        & > :not(:last-child) {
+            margin-right: 30px;
+        }
+
+        // .review__flex-item
+
+        &-item {
+            background-color: #fff;
+            padding: 44px 32px 30px 32px;
+            width: 100%;
+            max-width: 413px;
+            border: 10px solid $yellow;
+            display: flex;
+            flex-direction: column;
+
+            h4 {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 1.33;
+                color: $gray-dark;
+                margin-bottom: 1px;
+            }
+
+            label {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 24px;
+                color: $gray-middle;
+                margin-bottom: 28px;
+                display: block;
+            }
+
+            p {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 30px;
+                color: $gray-middle;
+                margin-bottom: 27px;
+                flex: 1 1 100%;
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                    margin-right: 21px;
+                }
+
+                div {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    span {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 1.5;
+                        color: $gray-middle;
+                        display: block;
+                    }
+
+                    a {
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 1.5;
+                        color: $blue;
+                    }
+                }
+            }
+        }
+    }
+    ._section-title {
+        margin-bottom: 63px;
+    }
+}

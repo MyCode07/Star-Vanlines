@@ -1,0 +1,128 @@
+.whyus {
+    // .whyus__container
+
+    &__container {
+    }
+
+    // .whyus__body
+
+    &__body {
+    }
+
+    ._section-title {
+        margin-bottom: 71px;
+    }
+
+    // .whyus__flex
+
+    &__flex {
+        margin-bottom: 144px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        // .whyus__flex-item
+
+        &-item {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            max-width: 380px;
+            width: 100%;
+
+            img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 19px;
+            }
+
+            h3 {
+                margin-bottom: 15px;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 22px;
+                line-height: 1.2;
+                text-align: center;
+                color: $blue;
+            }
+
+            p {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 17px;
+                line-height: 1.53;
+                text-align: center;
+                color: $gray-dark;
+            }
+        }
+    }
+
+    // .whyus__numbers
+
+    &__numbers {
+        margin-bottom: 140px;
+        padding-top: 284px;
+        padding-bottom: 202px;
+        position: relative;
+
+        // .whyus__numbers-bgc
+
+        &-bgc {
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        // .whyus__numbers-container
+
+        &-container {
+        }
+
+        // .whyus__numbers-body
+
+        &-body {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        // .whyus__numbers-item
+
+        &-item {
+            width: 100%;
+            max-width: 362px;
+
+            label {
+                display: block;
+                margin-bottom: 12px;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 1.71;
+                text-transform: uppercase;
+                color: $blue;
+            }
+
+            span {
+                display: block;
+                margin-bottom: 23px;
+                font-style: normal;
+                font-weight: 800;
+                font-size: 86px;
+                line-height: 0.88;
+                color: #ffffff;
+            }
+
+            p {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 1.5;
+                color: $gray-dark;
+            }
+        }
+    }
+}

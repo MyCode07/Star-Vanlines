@@ -1,0 +1,28 @@
+$containerWidth: 1300;
+$containerPadding: 70;
+$blue: #4f10a6;
+$yellow: #fcc602;
+$gray-light: #828282;
+$gray-middle: #4f4f4f;
+$gray-dark: #333333;
+$red: #eb5757;
+$green:#219653;
+
+$gradient: linear-gradient(
+    90deg,
+    rgba(
+            $color: $blue,
+            $alpha: 0.64,
+        )
+        0%,
+    rgba(
+            $color: $blue,
+            $alpha: 0.4,
+        )
+        52.37%,
+    rgba(
+            $color: $blue,
+            $alpha: 0,
+        )
+        100%
+);

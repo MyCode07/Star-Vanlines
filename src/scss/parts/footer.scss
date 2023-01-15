@@ -1,0 +1,139 @@
+.footer {
+    padding-top: 40px;
+    padding-bottom: 57px;
+    margin-top: 144px;
+
+    background-color: #f2f2f2;
+
+    // .footer__container
+
+    &__container {
+    }
+
+    // .footer__body
+
+    &__body {
+    }
+
+    // .footer__top
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .footer__logo
+
+    &__logo {
+    }
+
+    // .footer__menu
+
+    &__menu {
+        margin-left: 30px;
+        max-width: 998px;
+        width: 100%;
+        flex: 1 1 auto;
+
+        display: flex;
+        justify-content: space-between;
+
+        ul {
+            & > :not(:last-child) {
+                margin-bottom: 14px;
+            }
+
+            li {
+                &:not(:has(a)) {
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 15px;
+                    line-height: 1.6;
+                    text-transform: uppercase;
+                    color: $gray-dark;
+                    margin-bottom: 10px !important;
+                }
+
+                a {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 1.25;
+                    color: $gray-dark;
+                }
+            }
+        }
+    }
+
+    // .footer__bottom
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        margin-top: -36px;
+    }
+
+    // .footer__contacts
+
+    &__contacts {
+
+
+        h5 {
+            margin-bottom: 8px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.71;
+            text-transform: uppercase;
+            color: $gray-dark;
+        }
+
+        // .footer__contacts-phone
+
+        &-phone {
+            margin-bottom: 3px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.33;
+            color: $blue;
+            display: block;
+        }
+
+        // .footer__contacts-email
+
+        &-email {
+            margin-bottom: 22px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 1.78;
+            color: $blue;
+            display: block;
+        }
+
+        .socilas {
+        }
+    }
+
+    // .footer__copyright
+
+    &__copyright {
+        margin-top: 75px;
+        align-self: flex-end;
+        
+        text-align: right;
+
+        & > :not(:last-child) {
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+            color: $gray-middle;
+        }
+    }
+}
