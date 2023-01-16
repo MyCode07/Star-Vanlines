@@ -18,8 +18,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-bottom: 32px;
-        border-bottom: 1px solid rgba($color: $blue, $alpha: 0.2);
+
+        @media (min-width: 769px) {
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba($color: $blue, $alpha: 0.2);
+        }
 
         @media (max-width: 768px) {
             display: block;
@@ -81,6 +84,7 @@
 
         @media (max-width: 768px) {
             max-width: none;
+            margin-bottom: 20px;
         }
 
         input {
@@ -127,6 +131,27 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 40px;
+
+            & > :first-child {
+                margin-right: 10px;
+            }
+
+            & > :last-child {
+                margin-left: 10px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            a {
+                flex: 0 0 calc(50% - 10px);
+
+                max-width: calc(50% - 10px);
+
+                span {
+                    max-width: 100%;
+                }
+            }
         }
     }
 
@@ -174,12 +199,20 @@
                 align-items: center;
                 justify-content: center;
             }
+
+            @media (max-width: 768px) {
+                margin-bottom: 0;
+            }
         }
     }
 
     // .header__quote
 
     &__quote {
+        @include adaptive-value("width", 222, 157, 1);
+        @include adaptive-value("height", 56, 48, 1);
+        @include adaptive-value("font-size", 16, 14, 1);
+        
         @media (min-width: 993px) {
             @include adaptive-value("margin-left", 91, 0, 1);
         }
@@ -188,12 +221,40 @@
     // .header__menu
 
     &__menu {
-        padding-top: 29px;
+        @media (min-width: 769px) {
+            padding-top: 29px;
+        }
+
+        @media (max-width: 768px) {
+            position: absolute;
+            left: 0;
+            top: 221px;
+            padding: 0 20px;
+            background-color: #fff;
+            z-index: 100;
+
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+            transition: all 0.5s ease 0s;
+
+            &._open {
+                opacity: 1;
+                pointer-events: all;
+                visibility: visible;
+            }
+        }
 
         nav {
             margin: 0 auto;
             max-width: 1030px;
             width: 100%;
+
+            @media (max-width: 768px) {
+                padding-top: 51px;
+                overflow-y: auto;
+                max-height: calc(100vh - 297px);
+            }
 
             ul {
                 display: flex;
@@ -384,7 +445,7 @@
         }
     }
 
-    &-burger {
+    &__burger {
         display: none;
 
         label {
@@ -426,17 +487,31 @@
                 background-color: $blue;
                 position: absolute;
                 left: 0;
+                transition: all 0.25s ease 0s;
             }
         }
 
         @media (max-width: 768px) {
             display: flex;
             align-items: center;
+
+            &._active {
+                div {
+                    & > :first-child {
+                        top: 8px;
+                        rotate: 45deg;
+                    }
+
+                    & > :nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    & > :last-child {
+                        top: 8px;
+                        rotate: -45deg;
+                    }
+                }
+            }
         }
     }
-}
-
-section,
-footer {
-    display: none;
 }

@@ -7,23 +7,40 @@
                     every customer.</p>
             </div>
             <div class="whyus__flex">
-                <div class="whyus__flex-item">
-                    <img src="@img/svg/advantages/guarant.svg" alt="">
-                    <h3>Quality Service Guaranteed</h3>
-                    <p>Our team is able to provide you with a quality experience , we are here to make your move as easy
-                        as possible.</p>
-                </div>
-                <div class="whyus__flex-item">
-                    <img src="@img/svg/advantages/dedicate.svg" alt="">
-                    <h3>Dedicated Movers & Agents</h3>
-                    <p>We are confident that every customer will find moving effortless with our expert and reliable
-                        moving team.</p>
-                </div>
-                <div class="whyus__flex-item">
-                    <img src="@img/svg/advantages/care.svg" alt="">
-                    <h3>Care for Our Customers</h3>
-                    <p>We keep our customers informed. Every move is customized to meet the needs of each person,
-                        business, and family.</p>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="whyus__flex-item">
+                                <img src="@img/svg/advantages/guarant.svg" alt="">
+                                <h3>Quality Service Guaranteed</h3>
+                                <p>Our team is able to provide you with a quality experience , we are here to make your
+                                    move
+                                    as easy
+                                    as possible.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="whyus__flex-item">
+                                <img src="@img/svg/advantages/dedicate.svg" alt="">
+                                <h3>Dedicated Movers & Agents</h3>
+                                <p>We are confident that every customer will find moving effortless with our expert and
+                                    reliable
+                                    moving team.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="whyus__flex-item">
+                                <img src="@img/svg/advantages/care.svg" alt="">
+                                <h3>Care for Our Customers</h3>
+                                <p>We keep our customers informed. Every move is customized to meet the needs of each
+                                    person,
+                                    business, and family.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="whyus__flex-prev"></button>
+                    <button class="whyus__flex-next"></button>
+                    <div class="whyus__flex-pagination _pagination"></div>
                 </div>
             </div>
         </div>
@@ -49,6 +66,10 @@
             </div>
         </div>
 
-        <img class="whyus__numbers-bgc" src="@img/yellow-bgc.jpg" alt="">
+        <picture>
+            <source media="(min-width: 769px)" srcset="@img/why-us.png">
+            <source media="(max-width: 768px)" srcset="@img/why-us-mobile.png">
+            <img class="whyus__numbers-bgc" src="@img/why-us.png" alt="">
+        </picture>
     </div>
 </section>

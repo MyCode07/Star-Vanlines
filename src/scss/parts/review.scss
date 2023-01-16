@@ -1,18 +1,27 @@
 .review {
     position: relative;
-    padding-top: 300px;
-    padding-bottom: 272px;
-    margin-bottom: 100px;
-    
+    @include adaptive-value("margin-bottom", 100, 69, 1);
+
+    @include adaptive-value("padding-top", 300, 141, 1);
+    @include adaptive-value("padding-bottom", 272, 64, 1);
+
     // .review-bgc-img
 
-    &-bgc-img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
+    &-bgc {
+        background-color: $blue;
+
+        &-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    }
+
+    ._section-title {
+        @include adaptive-value("margin-bottom", 63, 41, 1);
     }
 
     // .review__container
@@ -28,11 +37,43 @@
     // .review__flex
 
     &__flex {
-        display: flex;
-        justify-content: center;
+        .swiper {
+            @media (min-width: 1025px) {
+                overflow: unset;
+            }
+        }
 
-        & > :not(:last-child) {
-            margin-right: 30px;
+        .swiper-wrapper {
+            @media (min-width: 1025px) {
+                display: flex;
+                justify-content: center;
+
+                & > :not(:last-child) {
+                    margin-right: 30px;
+                }
+            }
+        }
+
+        .swiper-slide {
+            @media (min-width: 1025px) {
+                max-width: 413px;
+                flex: 0 0 calc(33% - 15px);
+            }
+
+            height: auto;
+
+            @media (max-width: 1024px) {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        // .review__flex-pagination
+
+        &-pagination {
+            @media (max-width: 1024px) {
+                display: flex;
+            }
         }
 
         // .review__flex-item
@@ -45,6 +86,22 @@
             border: 10px solid $yellow;
             display: flex;
             flex-direction: column;
+            height: 100%;
+
+            @media (min-width: 769px) {
+                @include adaptive-value("padding-top", 44, 31, 1);
+                @include adaptive-value("padding-bottom", 20, 26, 1);
+                @include adaptive-value("padding-left", 32, 14, 1);
+                @include adaptive-value("padding-right", 31, 14, 1);
+            }
+
+            @media (max-width: 768px) {
+                padding: 31px 14px 27px 14px;
+            }
+
+            @media (max-width: 475px) {
+                max-width: none;
+            }
 
             h4 {
                 font-style: normal;
@@ -53,16 +110,25 @@
                 line-height: 1.33;
                 color: $gray-dark;
                 margin-bottom: 1px;
+
+                @media (max-width: 768px) {
+                    margin-bottom: 9px;
+                    font-size: 17px;
+                }
             }
 
             label {
                 font-style: normal;
                 font-weight: 400;
                 font-size: 15px;
-                line-height: 24px;
+                line-height: 1.56;
                 color: $gray-middle;
                 margin-bottom: 28px;
                 display: block;
+
+                @media (max-width: 768px) {
+                    margin-bottom: 22px;
+                }
             }
 
             p {
@@ -73,21 +139,39 @@
                 color: $gray-middle;
                 margin-bottom: 27px;
                 flex: 1 1 100%;
+
+                @include adaptive-value("font-size", 18, 16, 1);
             }
 
             div {
                 display: flex;
                 align-items: center;
 
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                }
+
                 img {
-                    width: 48px;
-                    height: 48px;
-                    margin-right: 21px;
+                    @include adaptive-value("width", 48, 40, 1);
+                    @include adaptive-value("height", 48, 40, 1);
+
+                    @media (min-width: 769px) {
+                        margin-right: 21px;
+                    }
+
+                    @media (max-width: 768px) {
+                        margin-bottom: 11px;
+                    }
                 }
 
                 div {
                     flex-direction: column;
                     align-items: flex-start;
+
+                    @media (max-width: 768px) {
+                        display: block;
+                    }
+
                     span {
                         font-style: normal;
                         font-weight: 400;
@@ -95,6 +179,10 @@
                         line-height: 1.5;
                         color: $gray-middle;
                         display: block;
+
+                        @media (max-width: 768px) {
+                            display: none;
+                        }
                     }
 
                     a {
@@ -103,12 +191,45 @@
                         font-size: 16px;
                         line-height: 1.5;
                         color: $blue;
+
+                        @media (max-width: 768px) {
+                            display: block;
+                            text-align: center;
+                            font-size: 15px;
+                        }
                     }
                 }
             }
         }
     }
-    ._section-title {
-        margin-bottom: 63px;
+
+    // .review__more
+
+    &__more {
+        display: none;
+
+        @media (max-width: 1024px) {
+            margin-inline: auto;
+            width: 100%;
+            max-width: 413px;
+            height: 56px;
+            margin-top: 32px;
+
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.5;
+            color: $yellow;
+            border: 1px solid $yellow;
+            border-radius: 100px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 475px) {
+            max-width: none;
+        }
     }
 }

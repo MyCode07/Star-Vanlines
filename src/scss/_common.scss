@@ -1,5 +1,9 @@
 body {
     font-family: "Montserrat";
+
+    &._noscroll {
+        overflow: hidden;
+    }
 }
 
 ._container {
@@ -46,9 +50,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 ._button {
-    @include adaptive-value("width", 222, 157, 1);
-    @include adaptive-value("height", 56, 48, 1);
-    @include adaptive-value("font-size", 16, 14, 1);
+    width: 222px;
+    height: 56px;
+    font-size: 16px;
 
     display: flex;
     align-items: center;
@@ -77,7 +81,7 @@ input[type="search"]::-webkit-search-results-decoration {
     align-items: center;
 
     & > :not(:last-child) {
-        margin-right: 5px;
+        margin-right: 9px;
     }
 
     img,
@@ -93,14 +97,15 @@ input[type="search"]::-webkit-search-results-decoration {
         text-align: center;
         font-style: normal;
         font-weight: 700;
-        font-size: 36px;
         line-height: 1.28;
         text-transform: uppercase;
         color: $blue;
+        @include adaptive-value("font-size", 36, 26, 1);
     }
 
     p {
-        margin-top: 19px;
+        @include adaptive-value("margin-top", 19, 22, 1);
+
         max-width: 636px;
         text-align: center;
         font-style: normal;
@@ -111,6 +116,14 @@ input[type="search"]::-webkit-search-results-decoration {
         color: $gray-middle;
         display: block;
         margin-inline: auto;
+
+        @media (max-width: 768px) {
+            font-size: 15px;
+        }
+
+        @media (max-width: 640px) {
+            max-width: none;
+        }
     }
 
     &-white {
@@ -133,5 +146,34 @@ input[type="search"]::-webkit-search-results-decoration {
         width: 40px;
         height: 40px;
         flex: 0 0 40px;
+    }
+}
+
+._pagination {
+    display: none;
+    position: static;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-inline: auto;
+    margin-top: 29px;
+
+    & > :not(:last-child) {
+        margin-right: 14px;
+    }
+
+    span {
+        display: block;
+        width: 12px;
+        height: 12px;
+        flex: 0 0 12px;
+        border: 1px solid $yellow;
+        border-radius: 50%;
+
+        transition: all 0.3s ease 0s;
+
+        &.swiper-pagination-bullet-active {
+            background-color: $yellow;
+        }
     }
 }

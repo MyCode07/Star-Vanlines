@@ -29,7 +29,11 @@
             </div>
 
             <div class="banner__background">
-                <img src="@img/home/banner.png" alt="">
+                <picture>
+                    <source media="(min-width: 769px)" srcset="@img/home/banner.png">
+                    <source media="(max-width: 768px)" srcset="@img/home/banner-mobile.png">
+                    <img src="@img/home/banner.png" alt="">
+                </picture>
             </div>
         </div>
     </div>

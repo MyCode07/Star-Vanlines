@@ -68,23 +68,10 @@ function toggleMenu(submenu, height) {
     let lockedSubMenu = document.querySelectorAll('.header__menu li[locked]');
 
     if (!target.hasAttribute('locked')) {
-
-        if (lockedSubMenu.length) {
-
-            if (target.closest('li[locked]')) {
-                console.log('locked');
-            }
-            else {
-                lockedSubMenu.forEach(locked => {
-                    gsap.timeline()
-                        .to(locked.querySelector('.sub-menu'), {
-                            duration: 0.5,
-                            height: 0,
-                            ease: "power4.out",
-                        })
-                    locked.removeAttribute('locked');
-                })
-            }
+        if (lockedSubMenu.length && !target.closest('li[locked]')) {
+            lockedSubMenu.forEach(locked => {
+                closeLockedMenu(locked)
+            })
         }
 
         showMenu(submenu, height);
@@ -93,17 +80,21 @@ function toggleMenu(submenu, height) {
     else {
         let lockedSubMenu = target.querySelector('li[locked]');
         if (lockedSubMenu) {
-            gsap.timeline()
-                .to(lockedSubMenu.querySelector('.sub-menu'), {
-                    duration: 0.5,
-                    height: 0,
-                    ease: "power4.out",
-                })
-            lockedSubMenu.removeAttribute('locked');
+            closeLockedMenu(lockedSubMenu)
         }
 
         hideMenu(submenu);
         submenu.closest('li').removeAttribute('locked')
+    }
+
+    function closeLockedMenu(menu) {
+        gsap.timeline()
+            .to(menu.querySelector('.sub-menu'), {
+                duration: 0.5,
+                height: 0,
+                ease: "power4.out",
+            })
+        menu.removeAttribute('locked');
     }
 }
 
@@ -113,3 +104,17 @@ function getHeight(elem) {
     let marginBottom = parseInt(compstyle.marginBottom);
     return elem.getBoundingClientRect().height + paddingBottom + marginBottom;
 }
+
+
+const burger = document.querySelector('.header__burger');
+const menu = document.querySelector('.header__menu');
+
+if (burger && window.innerWidth <= 768) {
+    burger.addEventListener('click', function () {
+        document.body.classList.toggle('_noscroll')
+        burger.classList.toggle('_active')
+        menu.classList.toggle('_open')
+    })
+}
+
+
