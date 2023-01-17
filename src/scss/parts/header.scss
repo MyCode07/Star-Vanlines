@@ -1,6 +1,11 @@
-body {
-    transition: padding 0.3s ease 0s;
-}
+main {
+    @media (min-width: 769px) {
+        @include adaptive-value("padding-top", 264, 240, 1);
+    }
+    @media (max-width: 768px) {
+        @include adaptive-value("padding-top", 268, 236, 1);
+    }
+} 
 
 .header {
     position: fixed;

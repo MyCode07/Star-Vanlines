@@ -8,10 +8,6 @@ window.addEventListener('scroll', function () {
 })
 stikyHeader()
 
-const header = document.querySelector('.header');
-const main = document.querySelector('main');
-const height = header.getBoundingClientRect().height;
-main.style.paddingTop = height + 'px'
 
 function stikyHeader() {
     const header = document.querySelector('.header');
