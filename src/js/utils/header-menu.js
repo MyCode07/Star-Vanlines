@@ -1,6 +1,14 @@
 import gsap from "gsap";
 import { isMobile } from "./isMobile.js";
 
+let windowWidth = window.innerWidth
+let ismobile = isMobile.any();
+
+window.addEventListener('resize', function () {
+    windowWidth = window.innerWidth
+    ismobile = isMobile.any();
+})
+
 const headerMenu = [...document.querySelectorAll('.header__menu .sub-menu')];
 
 const arrow = `
@@ -12,10 +20,22 @@ const arrow = `
 headerMenu.forEach(menu => {
     const li = menu.closest('li');
     const link = li.querySelector('a');
-    link.insertAdjacentHTML('afterend', arrow);
+    menuMobile();
 
-    if (isMobile.any() || window.innerWidth <= 768) {
-        li.classList.add('_click');
+    function menuMobile() {
+        if (ismobile || windowWidth <= 768) {
+            li.classList.add('_click');
+            if (!li.querySelector('svg')) {
+                link.insertAdjacentHTML('afterend', arrow);
+            }
+            link.classList.remove('_hover');
+        }
+        else {
+            if (li.querySelector('svg')) {
+                li.querySelector('svg').remove();
+            }
+            li.classList.remove('_click');
+        }
     }
 
     let height = 0;
@@ -23,23 +43,48 @@ headerMenu.forEach(menu => {
         height += getHeight(li);
     })
 
-    if (!isMobile.any()) {
-        li.addEventListener('mouseenter', function () {
+    window.addEventListener('resize', function () {
+        height = 0;
+        [...menu.children].forEach(li => {
+            height += getHeight(li);
+        })
+        menuMobile();
+    })
+
+    li.addEventListener('click', function (e) {
+        if (ismobile) {
+            e.stopPropagation()
+            toggleMenuHeight(menu, height);
+        }
+
+    })
+
+    li.addEventListener('mouseenter', function () {
+        if (!ismobile) {
             showMenu(menu, height)
             link.classList.add('_hover');
-        })
-        li.addEventListener('mouseleave', function () {
+        }
+    })
+
+    li.addEventListener('mouseleave', function () {
+        if (!ismobile) {
             hideMenu(menu)
             link.classList.remove('_hover');
-        })
-    }
-    else {
-        li.addEventListener('click', function (e) {
-            e.stopPropagation()
-            toggleMenu(menu, height);
-        })
-    }
+        }
+    })
 })
+
+// document.body.addEventListener('click', function (e) {
+//     let targetEl = e.target;
+//     if (!isMobile.any()) {
+//         if (!targetEl.closest('.header__menu li[locked]') && document.querySelectorAll('.header__menu li[locked]').length) {
+//             console.log('da');
+//             document.querySelectorAll('.header__menu li[locked]').forEach(li => {
+//                 li.removeAttribute('locked');
+//             })
+//         }
+//     }
+// })
 
 function showMenu(subMenu, height) {
     gsap.timeline()
@@ -49,7 +94,6 @@ function showMenu(subMenu, height) {
             ease: "power4.out",
         })
         .set(subMenu, {
-            delay: 0.1,
             height: 'auto',
         })
 }
@@ -63,7 +107,7 @@ function hideMenu(subMenu) {
         })
 }
 
-function toggleMenu(submenu, height) {
+function toggleMenuHeight(submenu, height) {
     let target = submenu.closest('li');
     let lockedSubMenu = document.querySelectorAll('.header__menu li[locked]');
 
@@ -108,13 +152,21 @@ function getHeight(elem) {
 
 const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.header__menu');
+const header = document.querySelector('.header');
+const headerButtons = document.querySelector('.header__top-right');
 
-if (burger && window.innerWidth <= 768) {
-    burger.addEventListener('click', function () {
-        document.body.classList.toggle('_noscroll')
-        burger.classList.toggle('_active')
-        menu.classList.toggle('_open')
-    })
+menuToggle();
+
+function menuToggle() {
+    if (burger && window.innerWidth <= windowWidth) {
+        burger.addEventListener('click', function () {
+            document.body.classList.toggle('_noscroll')
+            burger.classList.toggle('_active')
+            menu.classList.toggle('_open')
+
+            if (header.classList.contains('_stiky') && headerButtons) {
+                headerButtons.classList.toggle('_visible')
+            }
+        })
+    }
 }
-
-

@@ -7,7 +7,11 @@ if (faqs.length) {
     faqs.forEach(faq => {
         const question = faq.querySelector('[data-accordeon-open]');
         const answer = faq.querySelector('[data-accordeon-hidden]');
-        const height = getHeight(faq.querySelector('[data-accordeon-height]'));
+
+        let height = getHeight(faq.querySelector('[data-accordeon-height]'));
+        window.addEventListener('resize', function () {
+            height = getHeight(faq.querySelector('[data-accordeon-height]'));
+        })
 
         question.addEventListener('click', function () {
             locked = [...faqs].some(item => checkLocked(item));

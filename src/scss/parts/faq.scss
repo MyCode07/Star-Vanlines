@@ -13,13 +13,21 @@
 
         display: flex;
         justify-content: space-between;
-
         opacity: 0.06;
+
         img {
             max-width: 425px;
             max-height: 656px;
             width: 425px;
             height: 656px;
+            @media (max-width: 992px) {
+                width: 45%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            display: none;
         }
     }
 
@@ -34,14 +42,14 @@
     }
 
     ._section-title {
-        margin-bottom: 55px;
+        @include adaptive-value("margin-bottom", 55, 41, 1);
     }
 
     // .faq__items
 
     &__items {
         & > :not(:last-child) {
-            margin-bottom: 24px;
+            @include adaptive-value("margin-bottom", 24, 16, 1);
         }
     }
 
@@ -49,7 +57,10 @@
 
     &__item {
         border: 2px solid $yellow;
-        padding: 21px 32px 21px 24px;
+        @include adaptive-value("padding-top", 21, 16.4, 1);
+        @include adaptive-value("padding-bottom", 21, 16.4, 1);
+        @include adaptive-value("padding-right", 32, 22, 1);
+        @include adaptive-value("padding-left", 24, 20, 1);
 
         &[locked="true"] {
             .faq__item-question {
@@ -71,20 +82,25 @@
 
                 font-style: normal;
                 font-weight: 500;
-                font-size: 18px;
                 line-height: 1.44;
                 color: $gray-dark;
                 cursor: pointer;
+                @include adaptive-value("font-size", 18, 15, 1);
 
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
 
                 span {
                     pointer-events: none;
-                    width: 23px;
-                    height: 23px;
-                    flex: 0 0 23px;
+                    flex-grow: 0;
+                    flex-shrink: 0;
                     position: relative;
+                    margin-left: 17px;
+
+                    @include adaptive-value("width", 23, 19, 1);
+                    @include adaptive-value("height", 23, 19, 1);
+                    @include adaptive-value("flex-basis", 23, 19, 1);
 
                     &:before {
                         position: absolute;
@@ -130,9 +146,10 @@
                 border-top: 1px solid $yellow;
                 font-style: normal;
                 font-weight: 400;
-                font-size: 16px;
                 line-height: 1.61;
                 color: $gray-dark;
+
+                @include adaptive-value("font-size", 16, 14, 1);
             }
         }
     }

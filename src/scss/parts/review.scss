@@ -8,7 +8,17 @@
     // .review-bgc-img
 
     &-bgc {
-        background-color: $blue;
+        &:before {
+            position: absolute;
+            content: "";
+            left: 0;
+            width: 100%;
+            background-color: $blue;
+            z-index: -1;
+
+            top: 2px;
+            height: calc(100% - 4px);
+        }
 
         &-img {
             position: absolute;

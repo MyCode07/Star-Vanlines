@@ -1,8 +1,9 @@
 .moving {
     position: relative;
-    padding-top: 324px;
-    padding-bottom: 169px;
-    margin-bottom: 83px;
+    @include adaptive-value("margin-bottom", 83, 69, 1);
+
+    @include adaptive-value("padding-top", 324, 230, 1);
+    @include adaptive-value("padding-bottom", 169, 90, 1);
 
     // .moving__background
 
@@ -17,16 +18,25 @@
         &:before {
             position: absolute;
             content: "";
-            inset: 0;
+            left: 0;
+            width: 100%;
             background-color: rgba($color: $blue, $alpha: 0.5);
             z-index: 0;
+
+            top: 2px;
+            height: calc(100% - 4px);
         }
 
         &:after {
             position: absolute;
             content: "";
-            inset: 0;
             background: $gradient;
+
+            left: 0;
+            width: 100%;
+
+            top: 2px;
+            height: calc(100% - 4px);
         }
 
         img {
@@ -43,6 +53,9 @@
             &:not(.bgc) {
                 object-fit: cover;
                 z-index: -1;
+
+                height: calc(100% - 4px);
+                top: 2px;
             }
         }
     }
@@ -56,22 +69,41 @@
 
     &__body {
         h2 {
-            margin-bottom: 25px;
             font-style: normal;
             font-weight: 900;
-            font-size: 64px;
             line-height: 1.25;
             color: #ffffff;
+            @include adaptive-value("font-size", 64, 32, 1);
+            @include adaptive-value("margin-bottom", 25, 20, 1);
+
+            @media (max-width: 768px) {
+                text-align: center;
+            }
         }
 
         p {
             max-width: 655px;
-            margin-bottom: 39px;
             font-style: normal;
             font-weight: 400;
             font-size: 20px;
             line-height: 1.6;
             color: #ffffff;
+            margin-bottom: 39px;
+            @include adaptive-value("font-size", 20, 15, 1);
+
+            @media (max-width: 768px) {
+                margin-bottom: 41px;
+                max-width: none;
+                text-align: center;
+            }
+        }
+
+        a {
+            @include adaptive-value("width", 232, 177, 1);
+
+            @media (max-width: 768px) {
+                margin-inline: auto;
+            }
         }
     }
 }

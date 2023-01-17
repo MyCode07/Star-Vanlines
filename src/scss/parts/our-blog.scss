@@ -1,19 +1,5 @@
-section,
-footer {
-    display: none;
-}
-.banner,
-.whyus,
-.ourservices,
-.review,
 .ourblog {
-    display: block;
-}
-
-.ourblog {
-    padding-bottom: 150px;
-
-    margin-bottom: 94px;
+    @include adaptive-value("margin-bottom", 94, 69, 1);
 
     // .ourblog__container
 
@@ -45,6 +31,10 @@ footer {
                     calc((524 / $containerWidth) * 100%) calc((303 / $containerWidth) * 100%)
                     calc((413 / $containerWidth) * 100%);
                 gap: 32px 30px;
+
+                @media (max-width: 1200px) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
 
                 & > :first-child {
                     grid-column: span 3;
@@ -144,6 +134,15 @@ footer {
 
         article {
             border: 2px solid $yellow;
+            height: 100%;
+
+            @media (max-width: 1025px) {
+                max-width: 413px;
+            }
+
+            @media (max-width: 475px) {
+                max-width: none;
+            }
 
             a {
                 display: block;

@@ -151,7 +151,17 @@
         @include adaptive-value("padding-bottom", 202, 102, 1);
         position: relative;
 
-        background-color: $yellow;
+        &:before {
+            position: absolute;
+            content: "";
+            left: 0;
+            width: 100%;
+            background-color: $yellow;
+            z-index: -1;
+
+            top: 2px;
+            height: calc(100% - 4px);
+        }
 
         // .whyus__numbers-bgc
 

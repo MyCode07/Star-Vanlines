@@ -3,16 +3,28 @@
         <div class="moving__body">
 
             <div class="moving__background">
-                <img src="@img/moving.png" alt="">
-                <img class="bgc" src="@img/moving-bgc.jpg" alt="">
+                <picture>
+                    <source media="(min-width: 769px)" srcset="@img/moving.png">
+                    <source media="(max-width: 768px)" srcset="@img/moving-mobile.png">
+                    <img src="@img/moving.png" alt="">
+                </picture>
+
+                <picture>
+                    <source media="(min-width: 769px)" srcset="@img/moving-bgc.png">
+                    <source media="(max-width: 768px)" srcset="@img/moving-bgc-mobile.png">
+                    <img class="bgc" src="@img/moving-bgc.jpg" alt="">
+                </picture>
             </div>
 
 
             <h2>Let's Get Moving</h2>
-            <p>We know moving can be stressful. That's why we're here to make the process as simple as possible. Get
+            <p class="_desktop769">We know moving can be stressful. That's why we're here to make the process as simple as possible. Get
                 online moving
                 quotes and free cost estimates from licensed and insured movers.</p>
-            <button class="_button _button-yellow">Get a Quote</button>
+            <p class="_mobile798">We're here to make the process as simple as possible. Get online moving quotes and free cost estimates
+                from licensed
+                movers.</p>
+            <a href="" class="_button _button-yellow">Get a Quote</a>
         </div>
     </div>
 </section>
