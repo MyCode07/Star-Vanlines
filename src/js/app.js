@@ -7,3 +7,7 @@ import './utils/ourblog-slider.js'
 import './utils/footer-menu.js'
 import './utils/stiky-header.js'
 import './utils/process-slider.js'
+import './utils/customers.js'
+
+
+

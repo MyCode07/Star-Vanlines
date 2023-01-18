@@ -2,8 +2,7 @@
     position: relative;
     @include adaptive-value("padding-top", 177, 96, 1);
     @include adaptive-value("padding-bottom", 217, 87, 1);
-    @include adaptive-value('margin-bottom', 100, 61, 1);
-    
+    @include adaptive-value("margin-bottom", 100, 61, 1);
 
     // .whatis__container
 
@@ -84,6 +83,91 @@
             font-size: 16px;
             line-height: 1.62;
             color: #ffffff;
+        }
+    }
+
+    &-yellow {
+        @include adaptive-value("padding-top", 271, 96, 1);
+        @include adaptive-value("padding-bottom", 203, 87, 1);
+        &:before {
+            background-color: $yellow;
+        }
+        h2,
+        p {
+            color: $gray-dark;
+        }
+        h2 {
+            &:after {
+                background-color: $blue;
+            }
+        }
+    }
+
+    &-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        @include adaptive-value("padding-top", 176, 105, 1);
+        @include adaptive-value("padding-bottom", 196, 98, 1);
+
+        h2 {
+            @include adaptive-value("margin-top", 25, 31, 1);
+            @include adaptive-value("margin-bottom", 37, 56, 1);
+            text-transform: uppercase;
+
+            &:after {
+                margin-inline: auto;
+                @include adaptive-value("margin-top", 63, 33, 1);
+            }
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & > :not(:last-child) {
+                margin-right: 9px;
+            }
+
+            img,
+            svg {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                flex: 0 0 20px;
+            }
+        }
+
+        .whatis__flex {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                @include adaptive-value("font-size", 22, 17, 1);
+
+                @media (min-width: 1200px) {
+                    max-width: 1080px;
+                }
+            }
+
+            label {
+                @include adaptive-value("margin-top", 31, 38, 1);
+                display: block;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 2;
+                text-align: center;
+                text-transform: uppercase;
+                color: #ffffff;
+
+                @media (max-width: 768px) {
+                    font-size: 16px;
+                }
+            }
         }
     }
 }

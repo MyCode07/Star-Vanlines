@@ -43,6 +43,37 @@
         }
     }
 
+    // .banner-article
+
+    &-article {
+        @include adaptive-value("margin-bottom", 70, 40, 1);
+
+        .banner__body {
+            @include adaptive-value("padding-top", 60, 57, 1);
+            @include adaptive-value("padding-bottom", 39, 33, 1);
+        }
+
+        h1 {
+            margin-bottom: 21px !important;
+        }
+
+        p {
+            margin-top: 2px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.59;
+            color: #ffffff;
+            max-width: 521px;
+            @include adaptive-value("margin-bottom", 83,106, 1);
+
+            @media (max-width: 768px) {
+                margin-top: 0;
+                font-size: 15px;
+            }
+        }
+    }
+
     h1 {
         font-style: normal;
         font-weight: 800;
