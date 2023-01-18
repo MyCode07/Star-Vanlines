@@ -21,18 +21,23 @@ headerMenu.forEach(menu => {
         link = li.querySelector('a');
     }
 
-    if (windowWidth <= 768) {
-        if (!li.querySelector('svg')) {
-            li.insertAdjacentHTML('beforeend', arrow);
-        }
-
+    if (windowWidth > 768) {
+        menu.style.height = 'auto'
     }
 
-    else {
-        if (li.querySelector('svg')) {
-            li.querySelector('svg').remove();
+    mebunibile();
+    function mebunibile() {
+        if (windowWidth <= 768) {
+            if (!li.querySelector('svg')) {
+                li.insertAdjacentHTML('beforeend', arrow);
+            }
         }
-        menu.style.height = 'auto'
+
+        else {
+            if (li.querySelector('svg')) {
+                li.querySelector('svg').remove();
+            }
+        }
     }
 
     let height = 0;
@@ -45,6 +50,7 @@ headerMenu.forEach(menu => {
         [...menu.children].forEach(li => {
             height += getHeight(li);
         })
+        mebunibile();
     })
     li.addEventListener('click', function (e) {
         e.stopPropagation()

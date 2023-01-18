@@ -1,12 +1,46 @@
-
-
 .banner {
     position: relative;
-    margin-bottom: 116px;
 
     // .banner-home
 
     &-home {
+        @include adaptive-value("margin-bottom", 116, 69, 1);
+    }
+
+    // .banner-service
+
+    &-service {
+        @include adaptive-value("margin-bottom", 70, 40, 1);
+
+        .banner__body {
+            @include adaptive-value("padding-top", 60, 54, 1);
+            @include adaptive-value("padding-bottom", 39, 31, 1);
+        }
+
+        h1 {
+            margin-bottom: 21px !important;
+        }
+
+        p {
+            margin-top: 2px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.59;
+            color: #ffffff;
+            max-width: 521px;
+            @include adaptive-value("margin-bottom", 35, 26, 1);
+
+            @media (max-width: 768px) {
+                margin-top: 0;
+                font-size: 15px;
+            }
+        }
+
+        ._button {
+            @include adaptive-value("margin-bottom", 64, 48, 1);
+            @include adaptive-value("width", 222, 177, 1);
+        }
     }
 
     h1 {
@@ -88,8 +122,7 @@
         }
 
         ._button {
-
-            @media (max-width:768px){
+            @media (max-width: 768px) {
                 width: 177px;
             }
 
@@ -97,10 +130,9 @@
                 margin-right: 30px;
             }
 
-            @media (max-width:500px){
+            @media (max-width: 500px) {
                 margin-bottom: 52px;
             }
-            
         }
     }
 
@@ -116,7 +148,7 @@
             color: #ffffff;
             display: block;
 
-            @media (max-width:768px){
+            @media (max-width: 768px) {
                 margin-top: 10px;
                 font-size: 15px;
             }

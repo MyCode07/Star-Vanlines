@@ -1,0 +1,70 @@
+.breadcambs {
+    @include adaptive-value("margin-bottom", 50, 56, 1);
+
+    ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        svg {
+            display: none;
+            stroke: $yellow;
+            stroke-width: 3px;
+            width: 19px;
+            height: 19px;
+            margin-right: 19px;
+
+            @media (max-width: 768px) {
+                display: block;
+            }
+        }
+
+        li {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 17px;
+            line-height: 1.41;
+            text-transform: uppercase;
+
+            @media (max-width: 768px) {
+                &:not(.parent) {
+                    display: none;
+                }
+            }
+
+            &:has(a) {
+                display: flex;
+                align-items: center;
+                color: $yellow;
+                transition: all 0.3s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: $blue;
+                    }
+                }
+
+                a {
+                    color: currentColor;
+                }
+            }
+
+            &:not(:has(a)) {
+                color: $blue;
+            }
+
+            svg {
+                display: block;
+                stroke: currentColor;
+                stroke-width: 3px;
+                width: 12px;
+                height: 12px;
+                margin-inline: 23px;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+        }
+    }
+}

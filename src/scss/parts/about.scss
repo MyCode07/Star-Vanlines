@@ -1,0 +1,116 @@
+.about {
+    @include adaptive-value("margin-bottom", 96, 64, 1);
+
+    &-reverce {
+        .about__body {
+            @media (min-width: 769px) {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        }
+
+        .about__content {
+            @media (min-width: 769px) {
+                padding-left: 0 !important;
+                @include adaptive-value("padding-right", 61, 0, 1);
+            }
+        }
+    }
+
+    // .about__container
+
+    &__container {
+    }
+
+    // .about__body
+
+    &__body {
+        @media (min-width: 769px) {
+            display: flex;
+        }
+    }
+
+    // .about__image
+
+    &__image {
+        width: 100%;
+
+        @media (min-width: 769px) {
+            flex: 0 0 46.7%;
+        }
+
+        @media (min-width: 575px) {
+            max-width: 523px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            border: 10px solid #fcc602;
+            max-width: 100%;
+
+            @media (max-width: 768px) {
+                border-width: 7px;
+            }
+            @include adaptive-value("max-height", 544, 336px, 1);
+            object-fit: cover;
+        }
+    }
+
+    // .about__content
+
+    &__content {
+        @media (min-width: 769px) {
+            @include adaptive-value("padding-left", 61, 0, 1);
+        }
+
+        @media (min-width: 769px) {
+            @include adaptive-value("padding-top", 49, 0, 1);
+        }
+
+        @media (max-width: 768px) {
+            padding-top: 31px;
+        }
+
+        h2 {
+            font-style: normal;
+            font-weight: 800;
+            line-height: 1.44;
+            color: $gray-dark;
+            @include adaptive-value("font-size", 36, 24, 1);
+
+            @media (max-width: 375px) {
+                br {
+                    display: none;
+                }
+            }
+
+            &:after {
+                margin-top: 19px;
+                content: "";
+                display: block;
+                width: 94px;
+                height: 4px;
+                background-color: $yellow;
+                border-radius: 100px;
+
+                @media (max-width: 768px) {
+                    margin-top: 17px;
+                    width: 80px;
+                }
+            }
+        }
+    }
+    p {
+        margin-top: 37px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.62;
+        color: $gray-middle;
+
+        @media (max-width: 768px) {
+            margin-top: 41px;
+        }
+    }
+}
