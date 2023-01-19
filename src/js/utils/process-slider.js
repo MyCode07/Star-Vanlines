@@ -1,34 +1,36 @@
-import { Swiper, Pagination } from "swiper";
+import Swiper, { Pagination } from "swiper";
 
 const processGridItems = [...document.querySelectorAll('.process__grid-item')];
 
-setSlideronMobile(processGridItems)
-
 window.addEventListener('resize', function () {
-    setSlideronMobile(processGridItems)
+    if (document.querySelector('.process__grid .swiper') &&document.querySelector('.process__grid .swiper').swiper == null && this.window.innerWidth <= 768) {
+        setSlideronMobile(processGridItems)
+    }
 })
-
+setSlideronMobile(processGridItems)
 
 function setSlideronMobile(elems) {
     if (elems.length) {
-        let swiper = null;
 
         if (window.innerWidth <= 768) {
 
-            swiper = new Swiper('.process__grid .swiper', {
+            new Swiper('.process__grid .swiper', {
                 modules: [
                     Pagination
                 ],
                 loop: true,
+                spaceBetween: 30,
                 pagination: {
-                    el: '.process__grid-pagination',
+                    el: '.process__grid ._pagination',
                     clickable: true,
                 },
-                spaceBetween: 30,
+                watchSlidesProgress: true,
+                watchSlidesVisibility: true,
+
                 on: {
                     resize: function () {
                         if (window.innerWidth > 769) {
-                            swiper.destroy(true, true)
+                            this.destroy(true, true)
                         }
                     }
                 }

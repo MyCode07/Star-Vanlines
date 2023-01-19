@@ -1,34 +1,38 @@
-import { Swiper, Pagination } from "swiper";
+import Swiper, { Pagination } from "swiper";
 
 const reviewItems = [...document.querySelectorAll('.review__flex-item')];
 
-setSlideronMobile(reviewItems)
-
 window.addEventListener('resize', function () {
-    setSlideronMobile(reviewItems)
+    if (document.querySelector('.review__flex .swiper') && document.querySelector('.review__flex .swiper').swiper == null && this.window.innerWidth <= 768) {
+        setSlideronMobile(reviewItems)
+    }
 })
+
+setSlideronMobile(reviewItems)
 
 
 function setSlideronMobile(elems) {
     if (elems.length) {
-        let swiper = null;
 
         if (window.innerWidth <= 1024) {
 
-            swiper = new Swiper('.review__flex .swiper', {
+            new Swiper('.review__flex .swiper', {
                 modules: [
                     Pagination
                 ],
                 loop: true,
+                spaceBetween: 30,
                 pagination: {
-                    el: '.review__flex-pagination',
+                    el: '.review__flex ._pagination',
                     clickable: true,
                 },
-                spaceBetween: 30,
+                watchSlidesProgress: true,
+                watchSlidesVisibility: true,
+
                 on: {
                     resize: function () {
                         if (window.innerWidth > 1025) {
-                            swiper.destroy(true, true)
+                            this.destroy(true, true)
                         }
                     }
                 }

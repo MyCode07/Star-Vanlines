@@ -6,11 +6,11 @@
     today, and let’s get
     moving.",
     "banner-image":"img/quotes/banner.png",
-    "banner-imagemobile":"img/quotes/banner-imagemobile.png",
+    "banner-imagemobile":"img/quotes/banner-mobile.png",
     })
 
     <div class="breadcambs">
-        <div class="_container">
+        <div class="_container-small">
             <ul>
                 <svg viewBox="0 0 22 22" fill="none">
                     <path d="M20.3334 11.0001H1.66669M1.66669 11.0001L11 20.3334M1.66669 11.0001L11 1.66675"
@@ -26,6 +26,7 @@
             </ul>
         </div>
     </div>
+
     @@include("html/about.html",{
     "direction": "about-reverce",
 
@@ -80,7 +81,7 @@
     })
 
     <section class="whatis whatis-yellow">
-        <div class="whatis__container _container">
+        <div class="whatis__container _container-small">
             <div class="whatis__body">
 
                 <picture>
@@ -109,32 +110,23 @@
             </div>
         </div>
     </section>
-    <section class="helpful">
-        <div class="helpful__container _container">
-            <div class="helpful__body">
-                <div class="_section-title">
-                    <h2>Helpful Information</h2>
-                    <p>We’re here to help with a variety of long-distance services that can take the stress out of your
-                        next move.</p>
-                </div>
-                <div class="helpful__flex">
-                    <div class="">
-                        <img src="img/quotes/customer-reviews.png" alt="">
-                        <span>Customer Reviews</span>
-                    </div>
-                    <div class="">
-                        <img src="img/quotes/locations.png" alt="">
-                        <span>Locations</span>
-                    </div>
-                    <div class="">
-                        <img src="img/quotes/shipment-tracking.png" alt="">
-                        <span>Shipment Tracking</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    @@include("html/helpfull.html",{
+
+    "title": "Helpful Information",
+    "subtitle": "We’re here to help with a variety of long-distance services that can take the stress out of your
+    next move.",
+
+    "item1-img": "img/quotes/customer-reviews.png",
+    "item1-text": "Customer Reviews",
     
+    "item2-img": "img/quotes/locations.png",
+    "item2-text": "Locations",
+
+    "item3-img": "img/quotes/shipment-tracking.png",
+    "item3-text": "Shipment Tracking"
+    }) 
+
     @@include("html/moving.html")
     @@include("html/faq.html")
 

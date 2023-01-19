@@ -1,34 +1,36 @@
-import { Swiper, Pagination } from "swiper";
+import Swiper, { Pagination } from "swiper";
 
 const reviewItems = [...document.querySelectorAll('.ourblog__grid article')];
 
-setSlideronMobile(reviewItems)
-
 window.addEventListener('resize', function () {
-    setSlideronMobile(reviewItems)
+    if (document.querySelector('.ourblog__grid .swiper') &&document.querySelector('.ourblog__grid .swiper').swiper == null && this.window.innerWidth <= 1024) {
+        setSlideronMobile(reviewItems)
+    }
 })
+setSlideronMobile(reviewItems)
 
 
 function setSlideronMobile(elems) {
     if (elems.length) {
-        let swiper = null;
 
         if (window.innerWidth <= 1024) {
-
-            swiper = new Swiper('.ourblog__grid .swiper', {
+            new Swiper('.ourblog__grid .swiper', {
                 modules: [
                     Pagination
                 ],
                 loop: true,
+                spaceBetween: 30,
                 pagination: {
-                    el: '.ourblog__grid-pagination',
+                    el: '.ourblog__grid ._pagination',
                     clickable: true,
                 },
-                spaceBetween: 30,
+                watchSlidesProgress: true,
+                watchSlidesVisibility: true,
+
                 on: {
                     resize: function () {
                         if (window.innerWidth > 1025) {
-                            swiper.destroy(true, true)
+                            this.destroy(true, true)
                         }
                     }
                 }
@@ -38,7 +40,7 @@ function setSlideronMobile(elems) {
 }
 
 const articleExcerpts = document.querySelectorAll('.ourblog__grid article p');
-excerpt(articleExcerpts,19);
+excerpt(articleExcerpts, 19);
 
 export function excerpt(elems, words) {
     if (elems.length) {

@@ -62,6 +62,14 @@
                 line-height: 1.45;
                 color: $blue;
 
+                transition: all 0.3s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: $yellow;
+                    }
+                }
+
                 @media (max-width: 768px) {
                     line-height: 1.25;
                 }
@@ -86,21 +94,5 @@
                 }
             }
         }
-    }
-}
-
-.read-more {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 1.5;
-    color: $blue;
-
-    img {
-        @media (min-width: 769px) {
-            display: none;
-        }
-        width: 18.5px;
-        height: 18.5px;
     }
 }

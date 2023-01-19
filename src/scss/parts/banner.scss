@@ -65,7 +65,7 @@
             line-height: 1.59;
             color: #ffffff;
             max-width: 521px;
-            @include adaptive-value("margin-bottom", 83,106, 1);
+            @include adaptive-value("margin-bottom", 83, 106, 1);
 
             @media (max-width: 768px) {
                 margin-top: 0;
@@ -131,6 +131,7 @@
     // .banner__container
 
     &__container {
+       
     }
 
     // .banner__body

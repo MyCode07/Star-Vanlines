@@ -1,0 +1,154 @@
+.blog-cards {
+    @include adaptive-value("margin-bottom", 172, 101, 1);
+
+    // .cards__container
+
+    &__container {
+    }
+
+    // .cards__body
+
+    &__body {
+    }
+
+    // .cards__grid
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 24px 30px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            display: block;
+
+            & > :not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+
+        @media (min-width: 993px) {
+            & > :nth-child(7),
+            & > :nth-child(8) {
+                grid-column: span 3;
+            }
+        }
+
+        article {
+            @media (min-width: 993px) {
+                grid-column: span 2;
+            }
+
+            border: 2px solid $yellow;
+            border-top-width: 8px;
+
+            @include adaptive-value("padding-top", 47, 18, 1);
+            @include adaptive-value("padding-bottom", 27, 18, 1);
+            @include adaptive-value("padding-left", 30, 24, 1);
+            @include adaptive-value("padding-right", 26, 28, 1);
+
+            @media (max-width: 768px) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-top-width: 2px;
+                border-left-width: 8px;
+            }
+
+            h3 {
+                @media (min-width: 769px) {
+                    margin-bottom: 23px;
+                }
+
+                a {
+                    font-style: normal;
+                    font-weight: 800;
+                    font-size: 24px;
+                    line-height: 1.33;
+                    text-transform: uppercase;
+                    color: $yellow;
+                    @include adaptive-value("font-size", 24, 17, 1);
+
+                    display: flex;
+                    transition: all 0.3s ease 0s;
+
+                    @media (max-width: 768px) {
+                        color: $gray-dark;
+                        display: block;
+                        font-weight: 600;
+                        line-height: 1.41;
+
+                        @media (any-hover: hover) {
+                            &:hover {
+                                color: $yellow;
+                            }
+                        }
+                    }
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            color: $blue;
+
+                            span {
+                                color: $yellow;
+                            }
+                        }
+                    }
+                }
+
+                span {
+                    transition: all 0.3s ease 0s;
+                    position: relative;
+                    top: -0.3em;
+                    margin-right: 12px;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40px;
+                    line-height: 1.15;
+                    text-transform: uppercase;
+                    color: $blue;
+                    @include adaptive-value("font-size", 40, 14, 1);
+
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+                }
+            }
+
+            p {
+                margin-bottom: 32px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 1.5;
+                color: $gray-dark;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .read-more {
+                span {
+                    display: block;
+
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+                }
+
+                img {
+                    display: none;
+                    margin-left: 10px;
+
+                    @media (max-width: 768px) {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

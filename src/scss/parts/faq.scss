@@ -65,9 +65,13 @@
         &[locked="true"] {
             .faq__item-question {
                 span {
+                    color: $yellow;
                     &:after {
                         transform: translate(-50%, -50%) rotate(-90deg);
                     }
+                }
+                h4 {
+                    color: $yellow;
                 }
             }
         }
@@ -76,6 +80,17 @@
 
         &-question {
             cursor: pointer;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    span {
+                        color: $yellow;
+                    }
+                    h4 {
+                        color: $yellow;
+                    }
+                }
+            }
 
             h4 {
                 pointer-events: none;
@@ -91,16 +106,21 @@
                 justify-content: space-between;
                 align-items: center;
 
+                transition: all 0.3s ease 0s;
+
                 span {
                     pointer-events: none;
                     flex-grow: 0;
                     flex-shrink: 0;
                     position: relative;
                     margin-left: 17px;
+                    color: $blue;
 
                     @include adaptive-value("width", 23, 19, 1);
                     @include adaptive-value("height", 23, 19, 1);
                     @include adaptive-value("flex-basis", 23, 19, 1);
+
+                    transition: all 0.3s ease 0s;
 
                     &:before {
                         position: absolute;
@@ -111,7 +131,7 @@
 
                         height: 2px;
                         width: 100%;
-                        background-color: $blue;
+                        background-color: currentColor;
                     }
 
                     &:after {
@@ -125,7 +145,7 @@
 
                         width: 2px;
                         height: 100%;
-                        background-color: $blue;
+                        background-color: currentColor;
 
                         transition: all 0.3s ease 0s;
                     }

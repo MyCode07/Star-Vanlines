@@ -1,4 +1,6 @@
 .helpful {
+    @include adaptive-value("margin-bottom", 102, 75, 1);
+
     // .helpful__container
 
     &__container {
@@ -9,14 +11,22 @@
     &__body {
     }
 
+    ._section-title {
+        @include adaptive-value("margin-bottom", 55, 41, 1);
+    }
+
     // .helpful__flex
 
     &__flex {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @include adaptive-value("margin-top", 55, 41, 1);
-        @include adaptive-value("margin-bottom", 102, 75, 1);
+
+        @media (min-width: 993px) {
+            & > :not(:last-child) {
+                margin-right: 30px;
+            }
+        }
 
         @media (max-width: 992px) {
             display: grid;
@@ -24,29 +34,48 @@
             gap: 30px;
             place-content: center;
             justify-items: center;
-            div {
-                margin: 0 !important;
-            }
+            justify-content: center;
         }
 
         @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-            gap: 24px 0;
+            display: block;
+
+            & > :not(:last-child) {
+                margin-bottom: 30px;
+            }
         }
 
-        & > :not(:last-child) {
-            margin-right: 30px;
-        }
+        // .helpful__flex-item
 
-        div {
+        &-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-end;
             border: 7px solid $blue;
-            @include adaptive-value("width", 413, 335, 1);
-            @include adaptive-value("height", 272, 200, 1);
+            max-width: 413px;
+            width: 100%;
             position: relative;
+            transition: all 0.3s ease 0s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    border-color: $yellow;
+                    span {
+                        color: $yellow;
+                    }
+                }
+            }
+
+            @include adaptive-value("height", 272, 200, 1);
+
+            @media (max-width: 768px) {
+                margin-inline: auto;
+            }
+
+            @media (max-width: 475px) {
+                max-width: none;
+            }
 
             &:after {
                 position: absolute;
@@ -71,13 +100,13 @@
             span {
                 display: block;
                 @include adaptive-value("padding-bottom", 32, 23, 1);
-                position: relative;
                 z-index: 2;
                 font-style: normal;
                 font-weight: 700;
                 @include adaptive-value("font-size", 22, 20, 1);
-                line-height: 145%;
+                line-height: 1.45;
                 color: #ffffff;
+                transition: all 0.3s ease 0s;
             }
         }
     }

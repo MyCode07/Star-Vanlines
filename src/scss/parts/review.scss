@@ -202,6 +202,14 @@
                         line-height: 1.5;
                         color: $blue;
 
+                        transition: all 0.3s ease 0s;
+
+                        @media (any-hover: hover) {
+                            &:hover {
+                                color: $yellow;
+                            }
+                        }
+
                         @media (max-width: 768px) {
                             display: block;
                             text-align: center;

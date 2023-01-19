@@ -52,11 +52,17 @@
 // load whatis
 @import "parts/whatis";
 
-// load/process
+// load process
 @import "parts/process";
 
-// load/helpful
+// load helpful
 @import "parts/helpful";
 
-// load/reviews
-@import "parts/reviews";
+// load clients-reviews
+@import "parts/clients-reviews";
+
+// load locations
+@import "parts/locations";
+
+// load blog-cards
+@import "parts/blog-cards";

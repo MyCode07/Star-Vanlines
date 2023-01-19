@@ -113,6 +113,15 @@
                     font-size: 16px;
                     line-height: 1.25;
                     color: $gray-dark;
+
+                    transition: all 0.3s ease 0s;
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            color: $blue;
+                            text-shadow: 0 0 0.5px $blue, 0 0 0.5px $blue;
+                        }
+                    }
                 }
 
                 @media (max-width: 992px) {
@@ -186,6 +195,13 @@
             line-height: 1.33;
             color: $blue;
             display: block;
+            transition: all 0.3s ease 0s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $yellow;
+                }
+            }
         }
 
         // .footer__contacts-email
@@ -198,6 +214,14 @@
             line-height: 1.78;
             color: $blue;
             display: block;
+
+            transition: all 0.3s ease 0s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $yellow;
+                }
+            }
         }
 
         .socilas {
