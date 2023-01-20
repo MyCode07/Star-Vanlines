@@ -1,0 +1,149 @@
+@@include("html/header.html", {"title": "Contacts"})
+<main>
+    @@include("html/banner-main.html",{
+    "banner-title": "Contacts",
+    "banner-subtitle": "We are here to help you with any questions or concerns you may have. Please feel free to contact
+    our Customer Support
+    team at the numbers listed below.",
+    "banner-image":"img/contacts/banner.png",
+    "banner-imagemobile":"img/contacts/banner-mobile.png",
+    })
+
+    <div class="breadcambs">
+        <div class="_container-small">
+            <ul>
+                <svg viewBox="0 0 22 22" fill="none">
+                    <path d="M20.3334 11.0001H1.66669M1.66669 11.0001L11 20.3334M1.66669 11.0001L11 1.66675"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <li class="parent">
+                    <a href="">Home</a>
+                    <svg viewBox="0 0 8 14" fill="none">
+                        <path d="M1 13L7 7L1 1" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </li>
+                <li>Contacts</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="contacts">
+        <div class="contacts__container _container-small">
+            <div class="contacts__body">
+
+                <div class="contacts__info">
+                    <div class="contacts__info-phone">
+                        <span>Call Us</span>
+                        <a href="">(855) 822-2722</a>
+                    </div>
+                    <div class="contacts__info-email">
+                        <span>Send us an email</span>
+                        <a href="">info@starvanlinesmovers.com</a>
+                    </div>
+                    <div class="contacts__info-socials">
+                        <span>Connect with us</span>
+                        <ul class="socilas">
+                            <li><a href=""><img src="@img/svg/socilas/instagram.svg" alt=""></a></li>
+                            <li><a href=""><img src="@img/svg/socilas/facebook.svg" alt=""></a></li>
+                            <li><a href=""><img src="@img/svg/socilas/youtube.svg" alt=""></a></li>
+                            <li><a href=""><img src="@img/svg/socilas/linkedin.svg" alt=""></a></li>
+                            <li><a href=""><img src="@img/svg/socilas/twitter.svg" alt=""></a></li>
+                            <li><a href=""><img src="@img/svg/socilas/yelp.svg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contacts__map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6615.640621280543!2d-118.23860063212958!3d33.9971489348742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c8e60a60fbd5%3A0x838bf5af9bd1c5da!2zMjEwMSBFIDUxc3QgU3QsIFZlcm5vbiwgQ0EgOTAwNTgsINCh0KjQkA!5e0!3m2!1sru!2sru!4v1674208097377!5m2!1sru!2sru"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="form form-contact">
+        <div class="form__container _container">
+            <div class="form__body">
+
+                <div class="_section-title _section-title-yellow">
+                    <h2>We're here to help</h2>
+                    <p>Whether you have a question or just a general inquiry, please complete the form below and we’ll
+                        be with you as soon as
+                        we can to answer your question.</p>
+                </div>
+
+                <form action="#">
+                    <div class="form__grid">
+                        <div class="form__grid-item">
+                            <input type="text" placeholder="Name">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="text" class="farm-phone" placeholder="Phone Number">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="email" placeholder="Email">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <div class="form__select">
+                                <div class="form__select-title">
+                                    <span>Preferred Method of Contact</span>
+                                    <svg viewBox="0 0 18 10" fill="none">
+                                        <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="form__select-select">
+
+                                </div>
+                            </div>
+                            <input type="text" class="user-contact">
+                        </div>
+                        <div class="form__grid-item item-wullwidth">
+                            <textarea placeholder="Message"></textarea>
+                            <span></span>
+                        </div>
+                    </div>
+                    <input type="submit" value="Send Message">
+                </form>
+
+                <picture>
+                    <source media="(min-width: 769px)" srcset="img/from-bgc.png">
+                    <source media="(max-width: 768px)" srcset="img/whatis-mobile.png">
+                    <img src="img/from-bgc.png" alt="">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <div class="form__sent">
+        <div class="form__sent-body">
+            <div class="form__sent-content">
+                <button class="form__sent-close">
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span>
+                    <svg viewBox="0 0 40 30" fill="none">
+                        <path
+                            d="M12.7526 29.0881C12.3446 29.0881 11.9534 28.9273 11.6654 28.6393L1.05742 18.0313C0.457422 17.4313 0.457422 16.4593 1.05742 15.8593C1.65742 15.2593 2.62942 15.2593 3.22942 15.8593L12.7526 25.3801L36.7694 1.36089C37.3694 0.760889 38.3414 0.760889 38.9414 1.36089C39.5414 1.96089 39.5414 2.93289 38.9414 3.53289L13.8374 28.6369C13.5494 28.9273 13.1606 29.0881 12.7526 29.0881Z" />
+                    </svg>
+                </span>
+                <h5>Thanks for filling out our form</h5>
+                <p>We appreciate you contacting us. One of our colleagues will get back  in touch with you soon. Have a
+                    great day!</p>
+                <a href="/">Back to Our Website</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    @@include("html/faq.html")
+
+</main>
+@@include("html/footer.html")

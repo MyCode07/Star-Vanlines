@@ -1,29 +1,27 @@
 import Swiper, { Pagination } from "swiper";
 
-const reviewItems = [...document.querySelectorAll('.review__flex-item')];
+const processGridItems = [...document.querySelectorAll('.values article')];
 
 window.addEventListener('resize', function () {
-    if (document.querySelector('.review__flex .swiper') && document.querySelector('.review__flex .swiper').swiper == null && this.window.innerWidth <= 1024) {
-        setSlideronMobile(reviewItems)
+    if (document.querySelector('.values .swiper') && document.querySelector('.values .swiper').swiper == null && this.window.innerWidth <= 768) {
+        setSlideronMobile(processGridItems)
     }
 })
-
-setSlideronMobile(reviewItems)
-
+setSlideronMobile(processGridItems)
 
 function setSlideronMobile(elems) {
     if (elems.length) {
 
-        if (window.innerWidth <= 1024) {
+        if (window.innerWidth <= 768) {
 
-            new Swiper('.review__flex .swiper', {
+            new Swiper('.values .swiper', {
                 modules: [
                     Pagination
                 ],
                 loop: true,
                 spaceBetween: 30,
                 pagination: {
-                    el: '.review__flex ._pagination',
+                    el: '.values ._pagination',
                     clickable: true,
                 },
                 watchSlidesProgress: true,
@@ -31,7 +29,7 @@ function setSlideronMobile(elems) {
 
                 on: {
                     resize: function () {
-                        if (window.innerWidth > 1025) {
+                        if (window.innerWidth > 769) {
                             this.destroy(true, true)
                         }
                     }

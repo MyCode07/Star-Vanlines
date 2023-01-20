@@ -1,14 +1,14 @@
 import Swiper, { Pagination } from "swiper";
 
-const reviewItems = [...document.querySelectorAll('.review__flex-item')];
+const employeesItems = [...document.querySelectorAll('.employees__flex-item')];
 
 window.addEventListener('resize', function () {
-    if (document.querySelector('.review__flex .swiper') && document.querySelector('.review__flex .swiper').swiper == null && this.window.innerWidth <= 1024) {
-        setSlideronMobile(reviewItems)
+    if (document.querySelector('.employees__flex .swiper') && document.querySelector('.employees__flex .swiper').swiper == null && this.window.innerWidth <= 1024) {
+        setSlideronMobile(employeesItems)
     }
 })
 
-setSlideronMobile(reviewItems)
+setSlideronMobile(employeesItems)
 
 
 function setSlideronMobile(elems) {
@@ -16,14 +16,14 @@ function setSlideronMobile(elems) {
 
         if (window.innerWidth <= 1024) {
 
-            new Swiper('.review__flex .swiper', {
+            new Swiper('.employees__flex .swiper', {
                 modules: [
                     Pagination
                 ],
                 loop: true,
                 spaceBetween: 30,
                 pagination: {
-                    el: '.review__flex ._pagination',
+                    el: '._pagination',
                     clickable: true,
                 },
                 watchSlidesProgress: true,

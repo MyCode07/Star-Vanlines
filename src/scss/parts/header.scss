@@ -45,14 +45,27 @@ main {
                 &-right {
                     margin-left: 15px;
                 }
+
+                display: none;
             }
 
             .header__menu {
                 flex: 1 1 auto;
                 padding-top: 20px;
 
+                @media (min-width: 769px) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .header__menu-actions {
+                        display: flex;
+                    }
+                }
+
                 nav {
-                    max-width: none;
+                    max-width: 781px;
+                    margin: 0;
 
                     @media (max-width: 1300px) {
                         margin: 0 -10px;
@@ -109,38 +122,6 @@ main {
                             }
                         }
                     }
-                }
-            }
-
-            .header__actions {
-                margin-left: 0;
-            }
-
-            .header__quote {
-                margin-left: 30px;
-
-                @media (max-width: 1300px) and (min-width: 1025px) {
-                    width: 180px;
-                    margin-left: 20px;
-                }
-
-                @media (max-width: 1200px) and (min-width: 1025px) {
-                    margin-left: 15px;
-                    width: 157px;
-                }
-            }
-
-            .header__search {
-                display: none;
-            }
-
-            .header__phone {
-                & > :first-child {
-                    display: none;
-                }
-
-                & > :last-child {
-                    @include adaptive-value("font-size", 22, 16, 1);
                 }
             }
         }
@@ -687,6 +668,39 @@ main {
                             }
                         }
                     }
+                }
+            }
+        }
+
+        // .header__menu-actions
+
+        &-actions {
+            display: none;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: -20px;
+            margin-left: 20px;
+
+            & > :first-child {
+                font-style: normal;
+                font-weight: 700;
+                @include adaptive-value("font-size", 22, 16, 1);
+                line-height: 1.15;
+                color: $yellow;
+                white-space: nowrap;
+            }
+
+            & > :last-child {
+                margin-left: 30px;
+
+                @media (max-width: 1300px) and (min-width: 1025px) {
+                    width: 180px;
+                    margin-left: 20px;
+                }
+
+                @media (max-width: 1200px) and (min-width: 1025px) {
+                    margin-left: 15px;
+                    width: 157px;
                 }
             }
         }

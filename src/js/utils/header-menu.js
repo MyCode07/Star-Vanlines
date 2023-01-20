@@ -51,6 +51,14 @@ headerMenu.forEach(menu => {
         menuMobile();
     })
 
+    window.addEventListener('scroll', function () {
+        height = 0;
+        [...menu.children].forEach(li => {
+            height += getHeight(li);
+        })
+        menuMobile();
+    })
+
     li.addEventListener('click', function (e) {
         if (ismobile) {
             e.stopPropagation()

@@ -25,17 +25,24 @@ headerMenu.forEach(menu => {
         menu.style.height = 'auto'
     }
 
+
     mebunibile();
     function mebunibile() {
         if (windowWidth <= 768) {
             if (!li.querySelector('svg')) {
                 li.insertAdjacentHTML('beforeend', arrow);
             }
+            if (!menu.querySelector('li[locked]')) {
+                menu.style.height = 24 + 'px'
+            }
         }
 
         else {
             if (li.querySelector('svg')) {
                 li.querySelector('svg').remove();
+            }
+            if (!menu.querySelector('li[locked]')) {
+                menu.style.height = 'auto'
             }
         }
     }
@@ -46,6 +53,8 @@ headerMenu.forEach(menu => {
     })
 
     window.addEventListener('resize', function () {
+
+
         height = 0;
         [...menu.children].forEach(li => {
             height += getHeight(li);

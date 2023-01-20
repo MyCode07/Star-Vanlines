@@ -1,0 +1,167 @@
+.employees {
+    @include adaptive-value("margin-bottom", 184, 80, 1);
+
+    // .employees__container
+
+    &__container {
+    }
+
+    // .employees__body
+
+    &__body {
+    }
+
+    ._section-title {
+        @include adaptive-value("margin-bottom", 55, 41, 1);
+    }
+
+    .swiper {
+        @media (min-width: 1025px) {
+            overflow: unset;
+        }
+
+        // .swiper-wrapper
+
+        &-wrapper {
+            @media (min-width: 1025px) {
+                & > :not(:last-child) {
+                    margin-right: 30px;
+                }
+            }
+        }
+
+        // .swiper-slide
+
+        &-slide {
+            @media (min-width: 1025px) {
+                flex: 0 1 413px;
+                height: auto;
+                max-width: 413px;
+            }
+        }
+    }
+
+    // .employees__flex
+
+    &__flex {
+        // .employees__flex-item
+
+        &-item {
+            @include adaptive-value("padding-top", 40, 32, 1);
+            @include adaptive-value("padding-bottom", 44, 37, 1);
+            @include adaptive-value("padding-left", 42, 24, 1);
+            @include adaptive-value("padding-right", 42, 24, 1);
+
+            background: #ffffff;
+            border: 8px solid $blue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 413px;
+            width: 100%;
+            height: 100%;
+
+            @media (max-width: 1024px) {
+                margin-inline: auto;
+            }
+
+            @media (max-width: 475px) {
+                max-width: none;
+            }
+
+            h3 {
+                font-family: "Montserrat";
+                font-style: normal;
+                font-weight: 700;
+                @include adaptive-value("font-size", 18, 17, 1);
+                line-height: 1.41;
+                color: $gray-dark;
+                margin-bottom: 1px;
+            }
+
+            span {
+                font-family: "Montserrat";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 1.6;
+                text-align: center;
+                color: $gray-light;
+                display: block;
+                margin-bottom: 54px;
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    bottom: -17px;
+                    width: 62px;
+                    height: 3px;
+                    background-color: $yellow;
+                }
+            }
+
+            p {
+                font-family: "Montserrat";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                @include adaptive-value("font-size", 16, 17, 1);
+                line-height: 1.6;
+                text-align: center;
+                color: $gray-dark;
+            }
+
+            img {
+                border: 5px solid $yellow;
+                @include adaptive-value("width", 96, 88, 1);
+                @include adaptive-value("height", 96, 88, 1);
+                border-radius: 50%;
+                margin-bottom: 14px;
+            }
+        }
+    }
+
+    // .employees__pagination
+
+    &__pagination {
+        display: none;
+
+        @media (max-width: 1024px) {
+            display: flex;
+            margin-top: 20px;
+        }
+    }
+
+    // .employees__more
+
+    &__more {
+        display: none;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        max-width: 413px;
+        height: 56px;
+        border: 1px solid $blue;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.5;
+        color: $blue;
+        margin-inline: auto;
+        border-radius: 100px;
+        margin-top: 32px;
+
+        @media (max-width: 1024px) {
+            display: flex;
+        }
+
+        @media (max-width: 475px) {
+            max-width: none;
+        }
+    }
+}

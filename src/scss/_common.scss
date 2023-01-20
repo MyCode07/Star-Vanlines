@@ -170,6 +170,16 @@ input[type="search"]::-webkit-search-results-decoration {
             color: #fff;
         }
     }
+
+    &-yellow {
+        h2 {
+            color: $yellow;
+        }
+
+        p {
+            color: #fff;
+        }
+    }
 }
 
 .read-more {
@@ -212,7 +222,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 ._pagination {
-    display: none;
+    // display: none;
     position: static;
     align-items: center;
     justify-content: center;
