@@ -1,0 +1,118 @@
+@@include("html/header.html", {"title": "Shipment Tracking"})
+<main>
+    @@include("html/banner-main.html",{
+    "banner-title": "Shipment Tracking",
+    "banner-subtitle": "Please read the feedback we have received and what some of our valued customers are saying about
+    our professional moving
+    services.",
+    "banner-image":"img/shipment-tracking/banner.png",
+    "banner-imagemobile":"img/shipment-tracking/banner-mobile.png",
+    })
+
+    <div class="breadcambs">
+        <div class="_container-small">
+            <ul>
+                <svg viewBox="0 0 22 22" fill="none">
+                    <path d="M20.3334 11.0001H1.66669M1.66669 11.0001L11 20.3334M1.66669 11.0001L11 1.66675"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <li>
+                    <a href="">Home</a>
+                    <svg viewBox="0 0 8 14" fill="none">
+                        <path d="M1 13L7 7L1 1" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </li>
+                <li class="parent">
+                    <a href="">Customer Support</a>
+                    <svg viewBox="0 0 8 14" fill="none">
+                        <path d="M1 13L7 7L1 1" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </li>
+                <li>Shipment Tracking</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="text">
+        <div class="text__container _container-small">
+            <div class="text__body">
+                <h2>Shipment Tracking</h2>
+                <div>
+                    <p>A tracking number is a unique code assigned to almost all postal items. More often than not, it
+                        comprises of several
+                        alphanumeric characters but can consist of just numbers as well. Tracking number format very
+                        much depends on the
+                        regulations of each postal or courier service. For instance, tracking codes that correspond with
+                        UPU S10 standard are
+                        made up of 13 characters, while the ones for SpeedPAK are about 30-symbols long. No matter what
+                        your shipping ID looks
+                        like, you can always monitor the location of your package. We will help you with that since we
+                        support tracking number
+                        formats of most international carriers.
+                        <br>
+                        <br>
+                        You can also find the shipment reference number on your email confirmation and on the shipping
+                        label. Whether you have
+                        had your shipment picked or dropped a package off, you can use this tool to follow the status of
+                        your shipment. Share
+                        the shipment number with the receiver too, so that they can also monitor the movement of the
+                        package. Need help tracking
+                        your parcel? Get in touch and we will be happy to help.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="whatis whatis-center whatis-form">
+        <div class="whatis__container _container-small">
+            <div class="whatis__body">
+                <picture>
+                    <source media="(min-width: 769px)" srcset="img/whatis.png">
+                    <source media="(max-width: 768px)" srcset="img/whatis-mobile.png">
+                    <img src="img/whatis.png" alt="">
+                </picture>
+                <div class="_section-title _section-title-yellow">
+                    <h2>Track Your Shipment</h2>
+                    <p>To track your package, please enter your order number and the last name the shipment is
+                        registered under below.</p>
+                </div>
+                <form action="#">
+                    <div class="form__grid">
+                        <div class="form__grid-item">
+                            <input type="text" placeholder="Last Name">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="text" class="farm-phone" placeholder="Order Number">
+                            <span></span>
+                        </div>
+                    </div>
+                    <input type="submit" value="Track My Shipment">
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    @@include("html/faq.html")
+
+    @@include("html/helpfull.html",{
+
+    "title": "Customer Support",
+    "subtitle": "Our customer support team is happy to answer all of your questions. Use the helpful links below to
+    guide you to the
+    proper area.",
+
+    "item1-img": "img/contact-us.png",
+    "item1-text": "Contact Us",
+
+    "item2-img": "img/shipment-tracking.png",
+    "item2-text": "Shipment Tracking",
+
+    "item3-img": "img/rights-responsibilities.png",
+    "item3-text": "Rights & Responsibilities"
+    })
+
+</main>
+@@include("html/footer.html")

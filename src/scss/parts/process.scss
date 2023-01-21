@@ -12,7 +12,7 @@
     }
 
     ._section-title {
-        @include adaptive-value("margin-bottom", 67, 41, 1);
+        @include adaptive-value("margin-bottom", 111, 41, 1);
     }
 
     // .process__grid
@@ -139,11 +139,24 @@
                     font-size: 15px;
                 }
             }
+
+            a {
+                font-weight: 700;
+                color: $blue;
+                transition: all 0.3s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: $yellow;
+                    }
+                }
+            }
         }
 
         // .process__grid-pagination
 
         &-pagination {
+            display: none;
             @media (max-width: 768px) {
                 display: flex;
                 margin-top: 20px;

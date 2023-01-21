@@ -1,0 +1,140 @@
+@@include("html/header.html", {"title": "Get a Quote"})
+<main>
+    @@include("html/banner-main.html",{
+    "banner-title": "Get a Quote",
+    "banner-subtitle": "We work hard to keep your personal information safe and secure. Your information will not be
+    shared with third
+    parties. We guarantee confidentiality.",
+    "banner-image":"img/get-a-quote/banner.png",
+    "banner-imagemobile":"img/get-a-quote/banner-mobile.png",
+    })
+
+    <div class="breadcambs">
+        <div class="_container-small">
+            <ul>
+                <svg viewBox="0 0 22 22" fill="none">
+                    <path d="M20.3334 11.0001H1.66669M1.66669 11.0001L11 20.3334M1.66669 11.0001L11 1.66675"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <li class="parent">
+                    <a href="">Home</a>
+                    <svg viewBox="0 0 8 14" fill="none">
+                        <path d="M1 13L7 7L1 1" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </li>
+                <li>Get a Quote</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <section class="form form-quote">
+        <div class="form__container _container">
+            <div class="form__body">
+
+                <div class="_section-title">
+                    <h2>Start Your Move</h2>
+                    <p>We know moving can be stressful. That's why we're here to make the process as simple as possible.
+                    </p>
+                </div>
+                <form action="#">
+                    <div class="form__grid">
+                        <div class="form__grid-item">
+                            <input type="text" placeholder="First Name">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="text" placeholder="Last Name">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="email" placeholder="Email">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="text" class="farm-phone" placeholder="Phone Number">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="text" placeholder="Pick Up Address">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="text" placeholder="Moving to Address">
+                            <span></span>
+                        </div>
+                        <div class="form__grid-item">
+                            <div class="form__date">
+                                <div class="form__date-title">
+                                    <span>Select move date</span>
+                                    <svg viewBox="0 0 26 30" fill="none">
+                                        <path
+                                            d="M18.3333 1.66675V7.00008M7.66667 1.66675V7.00008M1 12.3334H25M3.66667 4.33341H22.3333C23.8061 4.33341 25 5.52732 25 7.00008V25.6667C25 27.1395 23.8061 28.3334 22.3333 28.3334H3.66667C2.19391 28.3334 1 27.1395 1 25.6667V7.00008C1 5.52732 2.19391 4.33341 3.66667 4.33341Z"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="form__date-calendar">
+
+                                </div>
+                            </div>
+                            <input type="text" class="form-date">
+                        </div>
+
+                        <div class="form__grid-item">
+                            <div class="form__select">
+                                <div class="form__select-title">
+                                    <span>Size of move</span>
+                                    <svg viewBox="0 0 18 10" fill="none">
+                                        <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="form__select-select">
+
+                                </div>
+                            </div>
+                            <input type="text" class="size-of-me">
+                        </div>
+
+                    </div>
+                    <div class="form__flexible">
+                        <div>
+                            <svg viewBox="0 0 18 13" fill="none">
+                                <path d="M17 1L6 12L1 7" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <label for="flexible-date">My move date is flexible</label>
+                        <input id="flexible-date" type="checkbox" hidden>
+                    </div>
+
+                    <input type="submit" value="Get a Quote">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="form__sent">
+        <div class="form__sent-body">
+            <div class="form__sent-content">
+                <button class="form__sent-close">
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span>
+                    <svg viewBox="0 0 40 30" fill="none">
+                        <path
+                            d="M12.7526 29.0881C12.3446 29.0881 11.9534 28.9273 11.6654 28.6393L1.05742 18.0313C0.457422 17.4313 0.457422 16.4593 1.05742 15.8593C1.65742 15.2593 2.62942 15.2593 3.22942 15.8593L12.7526 25.3801L36.7694 1.36089C37.3694 0.760889 38.3414 0.760889 38.9414 1.36089C39.5414 1.96089 39.5414 2.93289 38.9414 3.53289L13.8374 28.6369C13.5494 28.9273 13.1606 29.0881 12.7526 29.0881Z" />
+                    </svg>
+                </span>
+                <h5>Thanks for filling out our form</h5>
+                <p>We appreciate you contacting us. One of our colleagues will get back in touch with you soon. Have a
+                    great day!</p>
+                <a href="/">Back to Our Website</a>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+@@include("html/footer.html")

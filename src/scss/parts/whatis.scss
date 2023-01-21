@@ -86,6 +86,8 @@
         }
     }
 
+    // .whatis-yellow
+
     &-yellow {
         @include adaptive-value("padding-top", 271, 96, 1);
         @include adaptive-value("padding-bottom", 203, 87, 1);
@@ -102,6 +104,8 @@
             }
         }
     }
+
+    // .whatis-center
 
     &-center {
         display: flex;
@@ -169,5 +173,96 @@
                 }
             }
         }
+    }
+
+    // .whatis-form
+
+    &-claim {
+        @include adaptive-value("padding-top", 148, 102, 1);
+        @include adaptive-value("padding-bottom", 176, 102, 1);
+
+        h2 {
+            margin-top: 0 !important;
+            @include adaptive-value("margin-bottom", 19, 18, 1);
+            text-transform: uppercase;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        ._section-title {
+            margin-bottom: 31px;
+
+            @media (max-width: 768px) {
+                margin-bottom: 33px;
+            }
+        }
+
+        ._button {
+            @include adaptive-value("height", 72, 64, 1);
+            @include adaptive-value("width", 252, 257, 1);
+            @include adaptive-value("margin-bottom", 53, 63, 1);
+            margin-inline: auto;
+        }
+
+        span {
+            display: block;
+            margin-bottom: 9px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.52;
+            color: #ffffff;
+
+            @media (max-width: 768px) {
+                font-size: 15px;
+            }
+        }
+
+        .claim-phone {
+            display: block;
+            margin-inline: auto;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 1.31;
+            color: $yellow;
+        }
+    }
+
+    // .whatis-form
+
+    &-form {
+        @include adaptive-value("padding-top", 156, 94, 1);
+        @include adaptive-value("padding-bottom", 176, 96, 1);
+
+        h2 {
+            margin-top: 0 !important;
+            @include adaptive-value("margin-bottom", 19, 18, 1);
+            text-transform: uppercase;
+            color: $yellow;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        ._section-title {
+            @include adaptive-value("margin-bottom", 55, 41, 1);
+        }
+
+        form {
+            input[type="submit"] {
+                @media (min-width: 476px) {
+                    max-width: 257px;
+                }
+            }
+        }
+    }
+
+    // .whatis-form-request
+
+    &-form-request {
     }
 }

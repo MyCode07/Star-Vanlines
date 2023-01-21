@@ -1,0 +1,60 @@
+.error404 {
+    @include adaptive-value("margin-top", 97, 13, 1);
+
+    // .error404__container
+
+    &__container {
+    }
+
+    // .error404__body
+
+    &__body {
+        text-align: center;
+
+        h1 {
+            @include adaptive-value("font-size", 220, 128, 1);
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 900;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: $blue;
+
+            span {
+                @include adaptive-value('font-size', 64, 32, 1);
+                display: block;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 900;
+                line-height: 1.34;
+                text-transform: uppercase;
+                color: $yellow;
+            }
+        }
+
+        p {
+            @include adaptive-value("margin-top", 35, 11, 1);
+            @include adaptive-value("font-size", 24, 18, 1);
+
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.33;
+            color: $gray-dark;
+        }
+
+        ._button {
+            @include adaptive-value("width", 252, 257, 1);
+            @include adaptive-value("height", 64, 56, 1);
+            background-color: $blue;
+            color: #fff;
+            margin-inline: auto;
+            @include adaptive-value("margin-top", 65, 62, 1);
+
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: $yellow;
+                }
+            }
+        }
+    }
+}

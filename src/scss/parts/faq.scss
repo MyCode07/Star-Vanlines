@@ -1,4 +1,6 @@
 .faq {
+    @include adaptive-value("margin-bottom", 144, 80, 1);
+
     position: relative;
 
     // .faq__background
@@ -52,7 +54,7 @@
             @include adaptive-value("margin-bottom", 24, 16, 1);
         }
 
-        @media (min-width:1201px){
+        @media (min-width: 1201px) {
             max-width: 1078px;
             margin-inline: auto;
         }

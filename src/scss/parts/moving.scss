@@ -53,9 +53,12 @@
             &:not(.bgc) {
                 object-fit: cover;
                 z-index: -1;
-
                 height: calc(100% - 4px);
                 top: 2px;
+
+                @media (max-width: 768px) {
+                    object-position: top;
+                }
             }
         }
     }
