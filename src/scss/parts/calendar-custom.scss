@@ -1,0 +1,207 @@
+.form {
+    // .form-calendar
+
+    &-calendar {
+        width: 100% !important;
+    }
+
+    // .form__date
+
+    &__date {
+        &-title {
+            &._open + .form__date-calendar {
+                display: block;
+            }
+        }
+
+        // .form__date-calendar
+
+        &-calendar {
+            display: none;
+            z-index: 1;
+            position: absolute;
+            left: -2px;
+            top: 100%;
+            width: calc(100% + 4px);
+
+            * {
+                font-family: "Montserrat";
+            }
+        }
+    }
+}
+
+.dhx_calendar {
+    min-height: 258px;
+    padding: 12px;
+    background-color: #fff;
+    border: 2px solid $yellow;
+    padding: 0;
+    padding-top: 31px;
+    padding-bottom: 26px;
+    @include adaptive-value("padding-left", 42, 12, 1);
+    @include adaptive-value("padding-right", 42, 12, 1);
+
+    // .dhx_calendar-weekday
+
+    &-weekday {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 1.41;
+        text-transform: uppercase;
+        color: $gray-middle;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+
+    // .dhx_calendar-day
+
+    &-day {
+        margin-bottom: 0;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.41;
+        text-transform: uppercase;
+        color: $gray-dark;
+        height: 36px;
+        width: 36px;
+
+        @include adaptive-value("font-size", 17, 15, 1);
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        &:before,
+        &:after {
+            width: 36px;
+            height: 36px;
+            transform: translate(-50%, -50%);
+            background-color: $blue;
+        }
+
+        &--in-range {
+            color: #fff;
+
+            &:before,
+            &:after {
+                border-radius: 50%;
+            }
+        }
+
+        &--selected {
+            color: #fff;
+        }
+
+        &--hidden {
+            height: 0;
+        }
+    }
+
+    // .dhx_calendar__navigation
+
+    &__navigation {
+        margin: 0 0 32px 0;
+        padding: 0 9px;
+
+        @media (max-width: 768px) {
+            margin: 0 0 30px 0;
+        }
+    }
+
+    // .dhx_calendar__weekdays
+
+    &__weekdays {
+        display: grid;
+        grid-template-columns: repeat(7, 36px);
+        margin: 0 0 10px 0;
+    }
+
+    // .dhx_calendar__days
+
+    &__days {
+        display: grid;
+        grid-template-columns: repeat(7, 36px);
+        row-gap: 4px;
+    }
+}
+
+.dhx_calendar-navigation {
+    // .dhx_calendar-navigation__button
+
+    button,
+    &__button {
+        padding: 0 0 0 0 !important;
+        background: transparent !important;
+
+        @media (any-hover: hover) {
+            &:hover {
+                svg {
+                    stroke: $yellow;
+                }
+            }
+        }
+    }
+}
+
+.dhx_calendar-action {
+    // .dhx_calendar-action__show
+
+    &__show {
+        // .dhx_calendar-action__show-month
+
+        &-month {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 1.33;
+            text-transform: uppercase;
+            color: $blue !important;
+
+            @media (max-width: 768px) {
+                font-size: 17px;
+            }
+        }
+    }
+
+    // .dhx_calendar-action__next
+
+    &__next {
+        .dhx_button__icon svg {
+            rotate: 180deg;
+        }
+    }
+}
+
+.dhx_button {
+    // .dhx_button__icon
+
+    &__icon {
+        &:before {
+            display: none;
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+            stroke: $blue;
+            stroke-width: 2px;
+            transition: all 0.3s ease 0s;
+        }
+    }
+
+    &--size_small {
+        padding: 0 0 0 0 !important;
+    }
+}

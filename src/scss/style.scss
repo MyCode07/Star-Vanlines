@@ -13,6 +13,12 @@
 // load swiper
 @import "../../node_modules/swiper/swiper";
 
+// load calendar
+@import "parts/calendar";
+
+// load calendar-custom
+@import "parts/calendar-custom";
+
 // load common
 @import "_common";
 
@@ -87,3 +93,8 @@
 
 // load search
 @import "parts/search";
+
+
+a:visited{
+    color: $green;
+}

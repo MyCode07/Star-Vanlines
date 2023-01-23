@@ -109,22 +109,12 @@
     &-quote {
         @include adaptive-value("margin-top", 102, 61, 1);
 
-        &:before {
-            display: none;
+        .form__grid-item {
+            border-color: $yellow;
         }
 
-        .form__grid-item {
-            border: 1px solid $yellow;
-
-            input {
-                @include adaptive-value("height", 70, 62, 1);
-
-                padding: 22px 18px;
-
-                @media (max-width: 768px) {
-                    padding: 18px;
-                }
-            }
+        &:before {
+            display: none;
         }
 
         input[type="submit"] {
@@ -183,13 +173,53 @@ form {
             // .form__grid-item
 
             &-item {
+                position: relative;
                 background-color: #fff;
+                border: 2px solid transparent;
+
+                &._error {
+                    border-color: $red;
+
+                    .form__grid-item-validate {
+                        background-image: url("@img/svg/error-form.svg");
+                    }
+
+                    svg {
+                        stroke: $red;
+                    }
+                }
+
+                &._valid {
+                    border-color: $green;
+
+                    .form__grid-item-validate {
+                        background-image: url("@img/svg/ok-green.svg");
+                    }
+
+                    svg {
+                        stroke: $green;
+                    }
+                }
+
+                // .form__grid-item-validate
+
+                &-validate {
+                    position: absolute;
+                    right: 16px;
+                    @include adaptive-value("top", 34, 30, 1);
+                    transform: translate(0, -50%);
+                    width: 24px;
+                    height: 24px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: auto;
+                }
 
                 input {
-                    @include adaptive-value("height", 72, 64, 1);
+                    @include adaptive-value("height", 68, 60, 1);
                     display: block;
                     width: 100%;
-                    padding: 24px 20px;
+                    padding: 0 16px;
                     font-style: normal;
                     font-weight: 400;
                     font-size: 16px;
@@ -197,13 +227,12 @@ form {
                     color: $gray-middle;
 
                     @media (max-width: 768px) {
-                        padding: 20px;
                         font-size: 15px;
                     }
                 }
 
                 textarea {
-                    padding: 24px 20px;
+                    padding: 18px 16px;
                     display: block;
                     width: 100%;
                     resize: none;
@@ -213,10 +242,6 @@ form {
                     line-height: 1.5;
                     color: $gray-middle;
                     @include adaptive-value("height", 192, 160, 1);
-
-                    @media (max-width: 768px) {
-                        padding: 20px;
-                    }
                 }
             }
 
@@ -224,7 +249,7 @@ form {
                 grid-column: span 2;
             }
 
-            .farm-phone {
+            .form-phone {
             }
 
             .user-contact,
@@ -239,13 +264,13 @@ form {
         // .form__select
 
         &__select {
-            @include adaptive-value("height", 72, 64, 1);
+            @include adaptive-value("height", 68, 60, 1);
 
             // .form__select-title
 
             &-title {
                 height: 100%;
-                padding: 24px 20px;
+                padding: 0 16px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -256,9 +281,16 @@ form {
                 font-size: 16px;
                 line-height: 1.5;
                 color: $gray-middle;
+                transition: all 0.3s ease 0s;
+
+                &._open {
+                    color: $yellow;
+                    svg {
+                        rotate: 180deg;
+                    }
+                }
 
                 @media (max-width: 768px) {
-                    padding: 20px;
                     font-size: 15px;
                 }
 
@@ -273,6 +305,7 @@ form {
                     stroke: $yellow;
                     stroke-width: 2px;
                     margin-right: 8px;
+                    transition: all 0.3s ease 0s;
                 }
             }
 
@@ -285,13 +318,13 @@ form {
         // .form__date
 
         &__date {
-            @include adaptive-value("height", 72, 64, 1);
+            @include adaptive-value("height", 68, 60, 1);
 
             // .form__date-title
 
             &-title {
                 height: 100%;
-                padding: 24px 20px;
+                padding: 0 16px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -304,7 +337,6 @@ form {
                 color: $gray-middle;
 
                 @media (max-width: 768px) {
-                    padding: 20px;
                     font-size: 15px;
                 }
 
@@ -331,8 +363,6 @@ form {
         // .form__flexible
 
         &__flexible {
-            display: flex;
-            align-items: center;
             max-width: 856px;
             margin-inline: auto;
             margin-top: 32px;
@@ -344,16 +374,23 @@ form {
                 width: 32px;
                 height: 32px;
                 border: 1px solid $yellow;
+                cursor: pointer;
+                pointer-events: none;
+                margin-right: 18px;
             }
 
             label {
+                width: fit-content;
                 display: block;
-                margin-left: 18px;
                 font-style: normal;
                 font-weight: 400;
                 font-size: 16px;
                 line-height: 1.5;
                 color: $gray-dark;
+                cursor: pointer;
+
+                display: flex;
+                align-items: center;
             }
 
             svg {
@@ -361,6 +398,12 @@ form {
                 height: 16px;
                 stroke: $blue;
                 stroke-width: 2px;
+                opacity: 0;
+                transition: all 0.3s ease 0s;
+            }
+
+            input:checked + label svg {
+                opacity: 1;
             }
         }
     }
