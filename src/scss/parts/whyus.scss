@@ -87,6 +87,8 @@
         // .whyus__flex-pagination
 
         &-pagination {
+            display: none;
+
             @media (max-width: 768px) {
                 display: flex;
             }

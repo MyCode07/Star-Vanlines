@@ -25,6 +25,7 @@ const observer = new IntersectionObserver(entries => {
             if (img.hasAttribute('srcset')) {
                 img.srcset = img.dataset.srcset;
             }
+            observer.unobserve(entry.target)
         }
     })
 })

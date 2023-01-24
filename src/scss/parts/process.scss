@@ -157,6 +157,7 @@
 
         &-pagination {
             display: none;
+
             @media (max-width: 768px) {
                 display: flex;
                 margin-top: 20px;

@@ -205,7 +205,7 @@ form {
 
                 &-validate {
                     position: absolute;
-                    right: 16px;
+                    right: 20px;
                     @include adaptive-value("top", 34, 30, 1);
                     transform: translate(0, -50%);
                     width: 24px;
@@ -213,26 +213,31 @@ form {
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: auto;
+
+                    @media (max-width: 768px) {
+                        right: 18px;
+                    }
                 }
 
                 input {
                     @include adaptive-value("height", 68, 60, 1);
                     display: block;
                     width: 100%;
-                    padding: 0 16px;
                     font-style: normal;
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 1.5;
                     color: $gray-middle;
+                    padding: 18px 46px 18px 18px;
 
                     @media (max-width: 768px) {
                         font-size: 15px;
+                        padding: 18px 42px 18px 18px;
                     }
                 }
 
                 textarea {
-                    padding: 18px 16px;
+                    padding: 18px 46px 18px 18px;
                     display: block;
                     width: 100%;
                     resize: none;
@@ -242,6 +247,10 @@ form {
                     line-height: 1.5;
                     color: $gray-middle;
                     @include adaptive-value("height", 192, 160, 1);
+
+                    @media (max-width: 768px) {
+                        padding: 18px 42px 18px 18px;
+                    }
                 }
             }
 
@@ -253,6 +262,11 @@ form {
             }
 
             .user-contact,
+            .user-carrier,
+            .user-linehaul,
+            .user-age,
+            .user-experience,
+            .user-state,
             .size-of-me,
             .form-date {
                 height: 0;
@@ -270,7 +284,7 @@ form {
 
             &-title {
                 height: 100%;
-                padding: 0 16px;
+                padding: 0 26px 0 18px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -282,6 +296,10 @@ form {
                 line-height: 1.5;
                 color: $gray-middle;
                 transition: all 0.3s ease 0s;
+
+                @media (max-width: 768px) {
+                    padding: 0 22px 0 18px;
+                }
 
                 &._open {
                     color: $yellow;
@@ -302,9 +320,9 @@ form {
                     pointer-events: none;
                     width: 16px;
                     height: 16px;
+                    flex: 0 0 16px;
                     stroke: $yellow;
                     stroke-width: 2px;
-                    margin-right: 8px;
                     transition: all 0.3s ease 0s;
                 }
             }

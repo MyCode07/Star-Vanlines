@@ -81,6 +81,8 @@
         // .review__flex-pagination
 
         &-pagination {
+            display: none;
+            
             @media (max-width: 1024px) {
                 display: flex;
             }

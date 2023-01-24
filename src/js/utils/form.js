@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            // console.log(error);
             // if errer = -1 form is valid and can be sent
 
             formReq.forEach(input => {
@@ -73,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     validateInput(input, error)
                 }
             })
-            console.log(error);
 
         })
 

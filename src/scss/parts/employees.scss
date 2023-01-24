@@ -33,9 +33,10 @@
         // .swiper-slide
 
         &-slide {
+            height: auto;
+
             @media (min-width: 1025px) {
                 flex: 0 1 413px;
-                height: auto;
                 max-width: 413px;
             }
         }
