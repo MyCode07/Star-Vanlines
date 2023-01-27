@@ -507,16 +507,12 @@ main {
                             &:hover {
                                 color: $blue;
                                 transition: all 0.3s ease 0s;
-
-                                text-shadow: 0px 0px 1px $blue, 0 0 1px $blue;
                             }
                         }
 
                         &._hover {
                             color: $blue;
                             transition: all 0.3s ease 0s;
-
-                            text-shadow: 0px 0px 1px $blue, 0 0 1px $blue;
                         }
                     }
 
@@ -656,7 +652,6 @@ main {
                                     &:hover {
                                         color: $yellow;
                                         transition: all 0.3s ease 0s;
-                                        text-shadow: 0px 0px 1px $yellow, 0 0 1px $yellow;
                                     }
                                 }
 

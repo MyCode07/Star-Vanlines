@@ -34,12 +34,15 @@
 
     "about-title": "Do you want to become <br> a Star Vanlines Agent?",
 
-    "about-text": "As an agent-owned $1.6 billion transportation company we focus on what our agents need to compete in this rapidly
+    "about-text": "As an agent-owned $1.6 billion transportation company we focus on what our agents need to compete in
+    this rapidly
     changing environment. We never stop learning and developing tools and strategies that revolutionize our business.
     <br><br>
     Utilize shared services, purchasing power and information networks, all working to reduce your costs and increase
-    revenue. Unparalleled brand strength is what drives leads to our agents and provides them with the foundation to attract
-    and win new business. We invite you to complete the following confidential questionnaire and submit it to us, or call
+    revenue. Unparalleled brand strength is what drives leads to our agents and provides them with the foundation to
+    attract
+    and win new business. We invite you to complete the following confidential questionnaire and submit it to us, or
+    call
     us at (855) 822-2722."
 
     })
@@ -80,26 +83,19 @@
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="City">
+                            <input type="text" class="search-input" id="city" placeholder="City">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
+                            <div class="form__select-select"></div>
                         </div>
                         <div class="form__grid-item">
-                            <div class="form__select">
-                                <div class="form__select-title">
-                                    <span>State</span>
-                                    <svg viewBox="0 0 18 10" fill="none">
-                                        <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div class="form__select-select">
-
-                                </div>
-                            </div>
-                            <input type="text" hidden class="user-state">
+                            <input type="text" class="search-input" id="state" placeholder="State">
+                            <span></span>
+                            <div class="form__grid-item-validate"></div>
+                            <div class="form__select-select"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Zip">
+                            <input type="text" maxlength="5" class="search-input" id="zip" placeholder="Zip">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
@@ -112,13 +108,16 @@
                         <div class="form__grid-item item-wullwidth">
                             <div class="form__select">
                                 <div class="form__select-title">
-                                    <span>What is your current annual interstate linehaul volume?</span>
+                                    <span data-title="What is your current annual interstate linehaul volume?">What is
+                                        your current annual interstate linehaul volume?</span>
                                     <svg viewBox="0 0 18 10" fill="none">
                                         <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="form__select-select">
-
+                                    <span data-value="50.000 tn">50.000 tn</span>
+                                    <span data-value="100.000 tn">100.000 tn</span>
+                                    <span data-value="150.000 tn">150.000 tn</span>
                                 </div>
                             </div>
                             <input type="text" hidden class="user-linehaul">
@@ -127,13 +126,15 @@
                         <div class="form__grid-item">
                             <div class="form__select">
                                 <div class="form__select-title">
-                                    <span>Are you affiliated with a carrier?</span>
+                                    <span data-title="Are you affiliated with a carrier?">Are you affiliated with a
+                                        carrier?</span>
                                     <svg viewBox="0 0 18 10" fill="none">
                                         <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="form__select-select">
-
+                                    <span data-value="Yes">Yes</span>
+                                    <span data-value="No">No</span>
                                 </div>
                             </div>
                             <input type="text" hidden class="user-carrier">
@@ -142,13 +143,16 @@
                         <div class="form__grid-item">
                             <div class="form__select">
                                 <div class="form__select-title">
-                                    <span>I am interested in becoming...</span>
+                                    <span data-title="I am interested in becoming...">I am interested in
+                                        becoming...</span>
                                     <svg viewBox="0 0 18 10" fill="none">
                                         <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="form__select-select">
-
+                                    <span data-value="Partner 1">Partner 1</span>
+                                    <span data-value="Partner 2">Partner 2</span>
+                                    <span data-value="Partner 3">Partner 3</span>
                                 </div>
                             </div>
                             <input type="text" hidden class="user-contact">
@@ -171,6 +175,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <div class="form__sent">
         <div class="form__sent-body">

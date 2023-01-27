@@ -214,7 +214,26 @@ input[type="search"]::-webkit-search-results-decoration {
         @include adaptive-value("margin-right", 20, 15, 1);
     }
 
-    img {
+    a {
+        @media (any-hover: hover) {
+            &:hover {
+                img,
+                svg {
+                    path:not(.link-text) {
+                        fill: $blue;
+                    }
+                }
+            }
+        }
+    }
+
+    img,
+    svg {
+        path:not(.link-text) {
+            transition: all 0.3s ease 0s;
+            fill: $yellow;
+        }
+
         width: 40px;
         height: 40px;
         flex: 0 0 40px;

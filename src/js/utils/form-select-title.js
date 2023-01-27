@@ -6,6 +6,7 @@ if (formSelectTitles.length && window.innerWidth <= 768) {
         if (text.length > 2) {
             text = text.slice(0, 2)
             item.textContent = text.join(' ') + ' ...';
+            item.dataset.title = text.join(' ') + ' ...';
         }
     })
 }

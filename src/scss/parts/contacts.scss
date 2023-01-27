@@ -107,7 +107,7 @@
                     display: block;
                 }
 
-                img {
+                img,svg {
                     @include adaptive-value("width", 56, 40, 1);
                     @include adaptive-value("hight", 56, 40, 1);
                     @include adaptive-value("flex-basis", 56, 40, 1);

@@ -124,7 +124,7 @@
 
             @media (any-hover: hover) {
                 &:hover {
-                    background-color: #fff;
+                    background-color: $yellow;
                     color: $blue;
                 }
             }
@@ -139,6 +139,57 @@
 
             @media (max-width: 475px) {
                 max-width: none !important;
+            }
+        }
+    }
+
+    &-agent,
+    &-apply,
+    &-quote {
+        .form__select-select {
+            display: none;
+            z-index: 1;
+            position: relative;
+            border: 2px solid $yellow;
+            width: calc(100% + 4px);
+            left: -2px;
+            @include adaptive-value("max-height", calc(70 * 3), calc(62 * 3), 1);
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #fff;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: $yellow;
+            }
+
+            span {
+                width: 100%;
+                @include adaptive-value("height", 68, 60, 1);
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                padding: 18px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 1.5;
+                color: $gray-middle;
+                transition: all 0.3s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        background-color: $yellow;
+                        color: #fff;
+                    }
+                }
             }
         }
     }
@@ -262,6 +313,7 @@ form {
             }
 
             .user-contact,
+            .user-city,
             .user-carrier,
             .user-linehaul,
             .user-age,
@@ -303,8 +355,13 @@ form {
 
                 &._open {
                     color: $yellow;
+
                     svg {
                         rotate: 180deg;
+                    }
+
+                    + .form__select-select {
+                        display: block;
                     }
                 }
 
@@ -330,6 +387,50 @@ form {
             // .form__select-select
 
             &-select {
+                display: none;
+                z-index: 1;
+                position: relative;
+                border: 2px solid $blue;
+                width: calc(100% + 4px);
+                left: -2px;
+                @include adaptive-value("max-height", calc(70 * 3), calc(62 * 3), 1);
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: #fff;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: $blue;
+                }
+
+                span {
+                    width: 100%;
+                    @include adaptive-value("height", 68, 60, 1);
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+
+                    padding: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    color: $gray-middle;
+                    transition: all 0.3s ease 0s;
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            background-color: $blue;
+                            color: #fff;
+                        }
+                    }
+                }
             }
         }
 
@@ -384,6 +485,8 @@ form {
             max-width: 856px;
             margin-inline: auto;
             margin-top: 32px;
+            display: flex;
+            align-items: center;
 
             div {
                 display: flex;
@@ -391,6 +494,7 @@ form {
                 justify-content: center;
                 width: 32px;
                 height: 32px;
+                flex: 0 0 32px;
                 border: 1px solid $yellow;
                 cursor: pointer;
                 pointer-events: none;
@@ -422,6 +526,58 @@ form {
 
             input:checked + label svg {
                 opacity: 1;
+            }
+
+            &-info {
+                display: flex;
+                align-items: center;
+                margin-left: 15px;
+                font-size: 14px;
+                color: $gray-dark;
+                line-height: 1.25;
+                font-style: normal;
+                font-weight: 600;
+                position: relative;
+
+                & > :first-child {
+                    cursor: pointer;
+                    width: 30px;
+                    height: 30px;
+                    flex: 0 0 30px;
+                    border: 1px solid $yellow;
+                    border-radius: 50%;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:hover {
+                        + span {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+
+                & > :last-child {
+                    margin-left: 10px;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: all 0.3s ease 0s;
+
+                    @media (max-width: 768px) {
+                        position: absolute;
+                        top: 100%;
+                        right: 0;
+                        transform: translate(0, 10%);
+                        width: 160px;
+                        background-color: #fff;
+                        box-shadow: 0px 0px 4px 2px rgba($color: $yellow, $alpha: 0.2);
+                        padding: 6px;
+                        border-radius: 6px;
+                        text-align: center;
+                    }
+                }
             }
         }
     }

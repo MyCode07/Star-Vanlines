@@ -73,7 +73,7 @@
                         <div class="form__grid-item">
                             <div class="form__date">
                                 <div class="form__date-title">
-                                    <span>Select move date</span>
+                                    <span data-title="Select move date">Select move date</span>
                                     <svg viewBox="0 0 26 30" fill="none">
                                         <path
                                             d="M18.3333 1.66675V7.00008M7.66667 1.66675V7.00008M1 12.3334H25M3.66667 4.33341H22.3333C23.8061 4.33341 25 5.52732 25 7.00008V25.6667C25 27.1395 23.8061 28.3334 22.3333 28.3334H3.66667C2.19391 28.3334 1 27.1395 1 25.6667V7.00008C1 5.52732 2.19391 4.33341 3.66667 4.33341Z"
@@ -90,13 +90,15 @@
                         <div class="form__grid-item">
                             <div class="form__select">
                                 <div class="form__select-title">
-                                    <span>Size of move</span>
+                                    <span data-title="Size of move">Size of move</span>
                                     <svg viewBox="0 0 18 10" fill="none">
                                         <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="form__select-select">
-
+                                    <span data-value="Size 1">Size 1</span>
+                                    <span data-value="Size 2">Size 2</span>
+                                    <span data-value="Size 3">Size 3</span>
                                 </div>
                             </div>
                             <input type="text" class="size-of-me" hidden>
@@ -113,6 +115,10 @@
                             </div>
                             My move date is flexible
                         </label>
+                        <span class="form__flexible-info">
+                            <span>?</span>
+                            <span>Allows you to select a date range on the calendar</span>
+                        </span>
                     </div>
 
                     <input type="submit" value="Get a Quote">

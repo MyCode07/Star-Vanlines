@@ -178,38 +178,35 @@
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
+
                         <div class="form__grid-item">
-                            <input type="text" placeholder="City">
+                            <input type="text" placeholder="City" id="city" class="search-input">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
+                            <div class="form__select-select"></div>
                         </div>
-
                         <div class="form__grid-item">
-                            <div class="form__select">
-                                <div class="form__select-title">
-                                    <span>State</span>
-                                    <svg viewBox="0 0 18 10" fill="none">
-                                        <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div class="form__select-select">
-
-                                </div>
-                            </div>
-                            <input type="text" hidden class="user-state">
+                            <input type="text" placeholder="State" id="state" class="search-input">
+                            <span></span>
+                            <div class="form__grid-item-validate"></div>
+                            <div class="form__select-select"></div>
                         </div>
+
+
 
                         <div class="form__grid-item item-wullwidth">
                             <div class="form__select">
                                 <div class="form__select-title">
-                                    <span>Please confirm you are experienced and interested in handling household
+                                    <span data-title="Please confirm you are experienced and interested in handling household
+                                        goods">Please confirm you are experienced and interested in handling household
                                         goods</span>
                                     <svg viewBox="0 0 18 10" fill="none">
                                         <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="form__select-select">
-
+                                    <span data-value="Yes">Yes</span>
+                                    <span data-value="No">No</span>
                                 </div>
                             </div>
                             <input type="text" hidden class="user-experience">
@@ -218,13 +215,15 @@
                         <div class="form__grid-item item-wullwidth">
                             <div class="form__select">
                                 <div class="form__select-title">
-                                    <span>Please confirm that you are at least 21 years of age</span>
+                                    <span data-title="Please confirm that you are at least 21 years of age">Please
+                                        confirm that you are at least 21 years of age</span>
                                     <svg viewBox="0 0 18 10" fill="none">
                                         <path d="M1 1L9 9L17 1" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="form__select-select">
-
+                                    <span data-value="Yes">Yes</span>
+                                    <span data-value="No">No</span>
                                 </div>
                             </div>
                             <input type="text" hidden class="user-age">
@@ -253,5 +252,3 @@
 
 </main>
 @@include("html/footer.html")
-
-

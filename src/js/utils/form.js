@@ -1,13 +1,15 @@
 "use strict"
 
 import dhx from 'dhx-calendar';
+import { Country, State, City } from 'country-state-city';
 
-// get-a-quote.html
-// contacts.html
-// become-an-agent.html
-// rights.html
-// shipment-tracking.html
-// work-for-us.html
+
+// /get-a-quote.html
+// /contacts.html
+// /become-an-agent.html
+// /rights.html
+// /shipment-tracking.html
+// /work-for-us.html
 
 const formSent = document.querySelector('.form-sent');
 
@@ -16,33 +18,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function formValidate(form) {
         let error = 0;
-        let formReq = Array.from(
-            [...form.querySelectorAll('input')]
-                .concat([...form.querySelectorAll('textarea')]));
+        let formReq = [...form.querySelectorAll('input')]
+
 
         formReq.forEach(input => {
             if (input.type !== 'submit' && input.type !== 'checkbox') {
                 if (!input.hasAttribute('hidden')) {
+
                     input.addEventListener('input', function () {
-                        formRemoveError(input);
-                        validateInput(input, error)
+                        if (input.classList.contains('search-input')) {
+
+                        }
+                        else {
+                            formRemoveError(input);
+                            validateInput(input, error)
+                        }
                     })
                 }
                 else {
                     const inputParent = input.closest('.form__grid-item')
-                    const select = inputParent.querySelector('.form__select')
                     const selectTitle = inputParent.querySelector('.form__select-title')
 
                     if (selectTitle) {
+                        const span = selectTitle.querySelector('span');
                         selectTitle.addEventListener('click', function () {
                             this.classList.toggle('_open')
+                            if (span.dataset.value == '' || !span.dataset.value) {
+                                span.textContent = span.dataset.title
+                            }
+                            else {
+                                if (this.classList.contains('_open')) {
+                                    span.textContent = span.dataset.title
+                                }
+                                else {
+                                    span.textContent = span.dataset.value
+                                }
+                            }
                         })
                     }
 
                     const dateTitle = inputParent.querySelector('.form__date-title')
                     if (dateTitle) {
+                        const span = dateTitle.querySelector('span');
                         dateTitle.addEventListener('click', function () {
                             this.classList.toggle('_open')
+
+                            if (span.dataset.value == '' || !span.dataset.value) {
+                                span.textContent = span.dataset.title
+                            }
+                            else {
+                                if (this.classList.contains('_open')) {
+                                    span.textContent = span.dataset.title
+                                }
+                                else {
+                                    span.textContent = span.dataset.value
+                                }
+                            }
                         })
                     }
 
@@ -190,9 +221,11 @@ if (document.querySelector('#calendar-container')) {
             let date = calendar.getValue();
             if (typeof date != 'string') {
                 formDateTitle.textContent = date.join(',').replace(/,/, ' — ');
+                formDateTitle.dataset.value = date.join(',').replace(/,/, ' — ');
             }
             else {
                 formDateTitle.textContent = date;
+                formDateTitle.dataset.value = date;
             }
 
             formDate.value = date;
@@ -203,4 +236,30 @@ if (document.querySelector('#calendar-container')) {
             formDateParent.classList.add('_valid');
         });
     }
+}
+
+const formSelects = document.querySelectorAll('.form__select-select');
+if (formSelects.length) {
+    formSelects.forEach(select => {
+        const title = select.closest('.form__grid-item').querySelector('.form__select-title')
+        const options = select.querySelectorAll('span');
+        const input = select.closest('.form__grid-item').querySelector('input')
+
+        if (options.length) {
+            options.forEach(option => {
+                option.addEventListener('click', function () {
+                    title.querySelector('span').textContent = option.textContent
+                    title.querySelector('span').dataset.value = option.dataset.value
+                    input.value = option.dataset.value;
+                    title.classList.remove('_open')
+                })
+            })
+        }
+    })
+}
+
+if (document.querySelector('input#zip')) {
+    document.querySelector('input#zip').addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
 }
