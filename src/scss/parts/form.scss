@@ -147,18 +147,7 @@
     &-apply,
     &-quote {
         .form__select-select {
-            display: none;
-            z-index: 1;
-            position: relative;
             border: 2px solid $yellow;
-            width: calc(100% + 4px);
-            left: -2px;
-            @include adaptive-value("max-height", calc(70 * 3), calc(62 * 3), 1);
-            overflow-y: auto;
-
-            &::-webkit-scrollbar {
-                width: 4px;
-            }
 
             &::-webkit-scrollbar-track {
                 background: #fff;
@@ -228,6 +217,10 @@ form {
                 background-color: #fff;
                 border: 2px solid transparent;
 
+                &:not(.item-textarea) {
+                    @include adaptive-value("height", 72, 64, 1);
+                }
+
                 &._error {
                     border-color: $red;
 
@@ -271,7 +264,7 @@ form {
                 }
 
                 input {
-                    @include adaptive-value("height", 68, 60, 1);
+                    height: 100%;
                     display: block;
                     width: 100%;
                     font-style: normal;
@@ -330,7 +323,7 @@ form {
         // .form__select
 
         &__select {
-            @include adaptive-value("height", 68, 60, 1);
+            height: 100%;
 
             // .form__select-title
 

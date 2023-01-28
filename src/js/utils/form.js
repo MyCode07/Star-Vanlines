@@ -138,14 +138,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         else {
-            if (input.value.length < 2) {
-                formAddError(input);
-                error++;
+            if (input.id == 'zip') {
+                if (input.value.length < 5) {
+                    formAddError(input);
+                    error++;
+                }
+                else {
+                    formRemoveError(input);
+                    error--;
+                }
             }
             else {
-                formRemoveError(input);
-                error--;
+                if (input.value.length < 2) {
+                    formAddError(input);
+                    error++;
+                }
+                else {
+                    formRemoveError(input);
+                    error--;
+                }
             }
+
         }
     }
 
