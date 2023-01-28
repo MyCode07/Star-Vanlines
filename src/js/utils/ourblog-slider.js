@@ -1,13 +1,13 @@
 import Swiper, { Pagination } from "swiper";
 
-const reviewItems = [...document.querySelectorAll('.ourblog__grid article')];
+const ourblogGridItems = [...document.querySelectorAll('.ourblog__grid article')];
 
 window.addEventListener('resize', function () {
     if (document.querySelector('.ourblog__grid .swiper') && document.querySelector('.ourblog__grid .swiper').swiper == null && this.window.innerWidth <= 1024) {
-        setSlideronMobile(reviewItems)
+        setSlideronMobile(ourblogGridItems)
     }
 })
-setSlideronMobile(reviewItems)
+setSlideronMobile(ourblogGridItems)
 
 
 function setSlideronMobile(elems) {

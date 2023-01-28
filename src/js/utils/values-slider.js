@@ -1,13 +1,13 @@
 import Swiper, { Pagination } from "swiper";
 
-const processGridItems = [...document.querySelectorAll('.values article')];
+const valuesGridItems = [...document.querySelectorAll('.values article')];
 
 window.addEventListener('resize', function () {
     if (document.querySelector('.values .swiper') && document.querySelector('.values .swiper').swiper == null && this.window.innerWidth <= 768) {
-        setSlideronMobile(processGridItems)
+        setSlideronMobile(valuesGridItems)
     }
 })
-setSlideronMobile(processGridItems)
+setSlideronMobile(valuesGridItems)
 
 function setSlideronMobile(elems) {
     if (elems.length) {

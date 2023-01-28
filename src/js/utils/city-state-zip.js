@@ -64,6 +64,17 @@ if (document.querySelector('.form-request')) {
             const selectBody = parent.querySelector('.form__select-select');
 
             input.addEventListener('input', function (e) {
+
+                if (document.querySelectorAll('.search-input').length) {
+                    document.querySelectorAll('.search-input').forEach(input => {
+                        if (input !== this) {
+                            const selectBody = input.closest('.form__grid-item').querySelector('.form__select-select');
+                            selectBody.style.display = 'none'
+                        }
+                    });
+                }
+
+
                 if (this.value.length >= 2) {
 
                     if (input.id == 'city') {
