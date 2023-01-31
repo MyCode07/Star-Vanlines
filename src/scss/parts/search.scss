@@ -232,6 +232,12 @@
         // .moving__background
 
         &__background {
+            svg._desktop769 {
+                @media (min-width: 1025px) {
+                    display: none;
+                }
+            }
+
             @media (min-width: 1025px) {
                 border: 8px solid $yellow;
             }
@@ -245,6 +251,11 @@
             }
 
             img {
+                @media (max-width: 768px) {
+                    object-fit: cover;
+                    object-position: top;
+                }
+
                 &.bgc {
                     @media (min-width: 1025px) {
                         display: none !important;

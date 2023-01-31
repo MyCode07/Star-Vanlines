@@ -4,6 +4,16 @@
     @include adaptive-value("padding-top", 316, 102, 1);
     @include adaptive-value("padding-bottom", 246, 92, 1);
 
+    svg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        fill: $blue;
+    }
+
     &:before {
         position: absolute;
         content: "";
@@ -14,6 +24,7 @@
 
         top: 2px;
         height: calc(100% - 4px);
+        display: none;
     }
 
     &-bgc {
@@ -23,6 +34,8 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
+
+        display: none;
     }
 
     // .advantages__image

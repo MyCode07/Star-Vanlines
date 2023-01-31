@@ -153,6 +153,16 @@
         @include adaptive-value("padding-bottom", 202, 102, 1);
         position: relative;
 
+        svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            fill: $yellow;
+        }
+
         &:before {
             position: absolute;
             content: "";
@@ -163,6 +173,8 @@
 
             top: 2px;
             height: calc(100% - 4px);
+
+            display: none;
         }
 
         // .whyus__numbers-bgc
@@ -175,6 +187,8 @@
             left: 0;
             top: 0;
             pointer-events: none;
+
+            display: none;
         }
 
         // .whyus__numbers-container
