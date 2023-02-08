@@ -176,8 +176,6 @@
         // .client__item-more
 
         &-more {
-            display: none;
-
             align-items: center;
             justify-content: center;
 
@@ -203,11 +201,10 @@
                 }
             }
 
-            @media (max-width: 768px) {
-                display: flex;
-            }
+            display: flex;
+            margin-inline: auto;
 
-            @media (max-width:375px){
+            @media (max-width: 375px) {
                 max-width: none;
             }
         }

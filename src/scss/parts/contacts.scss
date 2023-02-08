@@ -55,6 +55,13 @@
                 line-height: 36px;
                 color: 1.29;
                 color: $blue;
+                transition: all 0.3s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: $yellow;
+                    }
+                }
             }
         }
 
@@ -77,6 +84,14 @@
 
                 @media (max-width: 360px) {
                     font-size: 17px;
+                }
+
+                transition: all 0.3s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: $yellow;
+                    }
                 }
             }
         }
@@ -107,7 +122,8 @@
                     display: block;
                 }
 
-                img,svg {
+                img,
+                svg {
                     @include adaptive-value("width", 56, 40, 1);
                     @include adaptive-value("hight", 56, 40, 1);
                     @include adaptive-value("flex-basis", 56, 40, 1);

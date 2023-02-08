@@ -86,15 +86,15 @@
                     <p>To track your package, please enter your order number and the last name the shipment is
                         registered under below.</p>
                 </div>
-                <form action="#">
+                <form action="#" data-type="shipment-tracking" data-formtitle="Shipment Tracking">
                     <div class="form__grid">
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Last Name">
+                            <input type="text" placeholder="Last Name" name="last-name">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Order Number">
+                            <input type="text" placeholder="Order Number" name="order-number">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
@@ -104,6 +104,47 @@
             </div>
         </div>
     </section>
+
+    <div class="form__sent">
+        <div class="form__sent-body">
+            <div class="form__sent-content">
+                <button class="form__sent-close">
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span>
+                    <svg viewBox="0 0 40 30" fill="none">
+                        <path
+                            d="M12.7526 29.0881C12.3446 29.0881 11.9534 28.9273 11.6654 28.6393L1.05742 18.0313C0.457422 17.4313 0.457422 16.4593 1.05742 15.8593C1.65742 15.2593 2.62942 15.2593 3.22942 15.8593L12.7526 25.3801L36.7694 1.36089C37.3694 0.760889 38.3414 0.760889 38.9414 1.36089C39.5414 1.96089 39.5414 2.93289 38.9414 3.53289L13.8374 28.6369C13.5494 28.9273 13.1606 29.0881 12.7526 29.0881Z" />
+                    </svg>
+                </span>
+                <h5>Thanks for filling out our form</h5>
+                <p>We appreciate you contacting us. One of our colleagues will get back in touch with you soon. Have a
+                    great day!</p>
+                <a href="/">Back to Our Website</a>
+            </div>
+        </div>
+    </div>
+    <div class="form__fail">
+        <div class="form__fail-body">
+            <div class="form__fail-content">
+                <button class="form__fail-close">
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span>
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <h5>Failed!</h5>
+                <p>Plaease repeat later.</p>
+            </div>
+        </div>
+    </div>
+
 
 
     @@include("html/faq.html")
@@ -125,5 +166,8 @@
     "item3-text": "Rights & Responsibilities"
     })
 
+
+
 </main>
+
 @@include("html/footer.html")

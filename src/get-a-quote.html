@@ -38,35 +38,35 @@
                     <p>We know moving can be stressful. That's why we're here to make the process as simple as possible.
                     </p>
                 </div>
-                <form action="#">
+                <form action="#" data-type="get-a-quote" data-formtitle="Get a Quote">
                     <div class="form__grid">
                         <div class="form__grid-item">
-                            <input type="text" placeholder="First Name">
+                            <input type="text" placeholder="First Name" name="name">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Last Name">
+                            <input type="text" placeholder="Last Name" name="last-name">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="email" class="form-email" placeholder="Email">
+                            <input type="email" class="form-email" placeholder="Email" name="email">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" class="form-phone" placeholder="Phone Number">
+                            <input type="text" class="form-phone" placeholder="Phone Number" name="phone">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Pick Up Address">
+                            <input type="text" placeholder="Pick Up Address" name="pick-up-address">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Moving to Address">
+                            <input type="text" placeholder="Moving to Address" name="moving-to-address">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
@@ -84,7 +84,7 @@
 
                                 </div>
                             </div>
-                            <input type="text" hidden class="form-date">
+                            <input type="text" hidden class="form-date" name="date">
                         </div>
 
                         <div class="form__grid-item">
@@ -101,7 +101,7 @@
                                     <span data-value="Size 3">Size 3</span>
                                 </div>
                             </div>
-                            <input type="text" class="size-of-me" hidden>
+                            <input type="text" class="size-of-me" hidden name="size">
                         </div>
 
                     </div>
@@ -127,24 +127,35 @@
         </div>
     </section>
 
-    <div class="form__sent">
-        <div class="form__sent-body">
-            <div class="form__sent-content">
-                <button class="form__sent-close">
-                    <svg viewBox="0 0 18 18" fill="none">
-                        <path d="M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <span>
-                    <svg viewBox="0 0 40 30" fill="none">
-                        <path
-                            d="M12.7526 29.0881C12.3446 29.0881 11.9534 28.9273 11.6654 28.6393L1.05742 18.0313C0.457422 17.4313 0.457422 16.4593 1.05742 15.8593C1.65742 15.2593 2.62942 15.2593 3.22942 15.8593L12.7526 25.3801L36.7694 1.36089C37.3694 0.760889 38.3414 0.760889 38.9414 1.36089C39.5414 1.96089 39.5414 2.93289 38.9414 3.53289L13.8374 28.6369C13.5494 28.9273 13.1606 29.0881 12.7526 29.0881Z" />
-                    </svg>
-                </span>
-                <h5>Thanks for filling out our form</h5>
-                <p>We appreciate you contacting us. One of our colleagues will get back in touch with you soon. Have a
-                    great day!</p>
-                <a href="/">Back to Our Website</a>
+    <div class="form-quote__result">
+        <div class="form__sent">
+            <div class="form__sent-body">
+                <div class="form__sent-content">
+                    <span>
+                        <svg viewBox="0 0 40 30" fill="none">
+                            <path
+                                d="M12.7526 29.0881C12.3446 29.0881 11.9534 28.9273 11.6654 28.6393L1.05742 18.0313C0.457422 17.4313 0.457422 16.4593 1.05742 15.8593C1.65742 15.2593 2.62942 15.2593 3.22942 15.8593L12.7526 25.3801L36.7694 1.36089C37.3694 0.760889 38.3414 0.760889 38.9414 1.36089C39.5414 1.96089 39.5414 2.93289 38.9414 3.53289L13.8374 28.6369C13.5494 28.9273 13.1606 29.0881 12.7526 29.0881Z" />
+                        </svg>
+                    </span>
+                    <h5>Thanks for filling out our form</h5>
+                    <p>We appreciate you contacting us. One of our colleagues will get back in touch with you soon. Have
+                        a
+                        great day!</p>
+                    <a href="/">Back to Our Website</a>
+                </div>
+            </div>
+        </div>
+        <div class="form__fail">
+            <div class="form__fail-body">
+                <div class="form__fail-content">
+                    <span>
+                        <svg viewBox="0 0 18 18" fill="none">
+                            <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <h5>Failed!</h5>
+                    <p>Plaease repeat later.</p>
+                </div>
             </div>
         </div>
     </div>

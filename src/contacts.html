@@ -152,20 +152,20 @@
                         we can to answer your question.</p>
                 </div>
 
-                <form action="#">
+                <form action="#" data-type="contacts" data-formtitle="Contacts from">
                     <div class="form__grid">
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Name" name="name">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" class="form-phone" placeholder="Phone Number">
+                            <input type="text" class="form-phone" placeholder="Phone Number" name="phone">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="email" class="form-email" placeholder="Email">
+                            <input type="email" class="form-email" placeholder="Email" name="email">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
@@ -183,10 +183,10 @@
                                     <span data-value="Email Me">Email Me</span>
                                 </div>
                             </div>
-                            <input type="text" hidden class="user-contact">
+                            <input type="text" hidden class="user-contact" name="contact-method">
                         </div>
                         <div class="form__grid-item item-textarea item-wullwidth">
-                            <textarea placeholder="Message"></textarea>
+                            <textarea placeholder="Message" name="msg"></textarea>
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
@@ -216,7 +216,7 @@
             <div class="form__sent-content">
                 <button class="form__sent-close">
                     <svg viewBox="0 0 18 18" fill="none">
-                        <path d="M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
                 <span>
@@ -229,6 +229,24 @@
                 <p>We appreciate you contacting us. One of our colleagues will get back in touch with you soon. Have a
                     great day!</p>
                 <a href="/">Back to Our Website</a>
+            </div>
+        </div>
+    </div>
+    <div class="form__fail">
+        <div class="form__fail-body">
+            <div class="form__fail-content">
+                <button class="form__fail-close">
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span>
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <h5>Failed!</h5>
+                <p>Plaease repeat later.</p>
             </div>
         </div>
     </div>

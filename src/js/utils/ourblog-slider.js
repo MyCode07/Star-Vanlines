@@ -65,7 +65,7 @@ const articleExcerpts = document.querySelectorAll('.ourblog__grid article p');
 excerpt(articleExcerpts, 19);
 
 export function excerpt(elems, words) {
-    if (elems.length) {
+    if (elems.length && window.innerWidth <= 768) {
         elems.forEach(item => {
             let text = item.innerText.split(' ');
 

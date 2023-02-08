@@ -44,8 +44,6 @@ if (document.querySelector('.form-request')) {
     }
     inputOnStateCityZip(cityInput, mapData)
 
-
-
     const allStates = Array.from(
         new Set(
             mapData.map(index => {
@@ -67,7 +65,7 @@ if (document.querySelector('.form-request')) {
 
                 if (document.querySelectorAll('.search-input').length) {
                     document.querySelectorAll('.search-input').forEach(input => {
-                        if (input !== this) {
+                        if (input !== this && input.id != 'zip') {
                             const selectBody = input.closest('.form__grid-item').querySelector('.form__select-select');
                             selectBody.style.display = 'none'
                         }
@@ -118,6 +116,15 @@ if (document.querySelector('.form-request')) {
                                 setTimeout(() => {
                                     alert('no zip code')
                                 }, 500);
+
+                                input.dataset.state = ''
+                                input.dataset.city = ''
+                                input.dataset.zip = ''
+                                stateInput.dataset.state = ''
+                                stateInput.value = ''
+                                cityInput.dataset.state = ''
+                                cityInput.dataset.zip = ''
+                                cityInput.value = ''
                             }
                         }
                     }
@@ -172,6 +179,8 @@ if (document.querySelector('.form-request')) {
                     input.dataset.state = option.dataset.state;
                     input.dataset.zip = option.dataset.zip;
                     select.style.display = 'none';
+
+
 
                     if (input.id == 'city') {
                         if (zipInput) {

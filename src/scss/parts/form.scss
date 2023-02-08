@@ -190,6 +190,32 @@
 }
 
 form {
+    &._sending {
+        position: relative;
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            max-width: 856px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 100%;
+            height: 100%;
+            z-index: 8;
+            background-color: rgba($color: #000000, $alpha: 0.75);
+            background-image: url("https://starvanlines.test-yeremyan.site/wp-content/plugins/add-search-to-menu/public/images/spinner.gif");
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            @media (max-width: 900px) {
+                max-width: none;
+                left: 0;
+                transform: translate(0, 0);
+            }
+        }
+    }
+
     .form {
         // .form__grid
 
@@ -395,7 +421,7 @@ form {
                 overflow-y: auto;
 
                 &::-webkit-scrollbar {
-                    width: 4px;
+                    width: 10px;
                 }
 
                 &::-webkit-scrollbar-track {
@@ -620,20 +646,411 @@ form {
 }
 
 .form__sent {
-    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -2;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+
+    &._sent {
+        opacity: 1;
+        z-index: 10;
+        pointer-events: all;
+        visibility: visible;
+
+        .form__sent-content {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        opacity: 0.4;
+        z-index: -1;
+    }
 
     // .form__sent-body
 
     &-body {
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
 
     // .form__sent-content
 
     &-content {
+        width: 100%;
+        max-width: 856px;
+        background-color: #ffffff;
+        border-radius: 30px;
+        position: relative;
+
+        transition: all 0.3s ease 0s;
+        transform: translate3d(0, 150px, 0);
+
+        @media (min-width: 769px) {
+            padding: 40px 40px 34px 40px;
+        }
+
+        @media (max-width: 992px) {
+            max-width: none;
+            width: calc(100% - 40px);
+            margin-inline: auto;
+        }
+
+        @media (max-width: 768px) {
+            border-radius: 20px;
+            @include adaptive-value("padding-top", 40, 104, 1);
+            @include adaptive-value("padding-left", 40, 16, 1);
+            @include adaptive-value("padding-right", 40, 16, 1);
+            @include adaptive-value("padding-bottom", 34, 106, 1);
+        }
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        span {
+            border: 3px solid $green;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+
+            @media (min-width: 769px) {
+                width: 93px;
+                height: 93px;
+            }
+
+            @media (max-width: 768px) {
+                @include adaptive-value("width", 93, 70, 1);
+                @include adaptive-value("height", 93, 70, 1);
+                border-width: 2.25px;
+                margin-bottom: 31px;
+            }
+
+            svg {
+                fill: $green;
+
+                @media (min-width: 769px) {
+                    width: 38px;
+                    height: 28px;
+                }
+
+                @media (max-width: 768px) {
+                    @include adaptive-value("width", 38, 29, 1);
+                    @include adaptive-value("height", 28, 21, 1);
+                }
+            }
+        }
+
+        h5 {
+            font-style: normal;
+            font-weight: 700;
+            line-height: 1.44;
+            text-transform: uppercase;
+            color: $green;
+            margin-bottom: 25px;
+            @include adaptive-value("font-size", 32, 24, 1);
+
+            @media (max-width: 768px) {
+                margin-bottom: 24px;
+            }
+        }
+
+        p {
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.53;
+            text-align: center;
+            color: $gray-middle;
+            max-width: 84%;
+            @include adaptive-value("font-size", 17, 15, 1);
+
+            @media (min-width: 769px) {
+                margin-bottom: 29px;
+            }
+
+            @media (max-width: 768px) {
+                @include adaptive-value("margin-bottom", 29, 47, 1);
+            }
+        }
+
+        a {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.5;
+            color: $blue !important;
+            transition: all 0.3s ease 0s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $yellow !important;
+                }
+            }
+        }
     }
 
     // .form__sent-close
 
     &-close {
+        position: absolute;
+        right: 40px;
+        top: 32px;
+
+        @media (max-width: 768px) {
+            right: 32px;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                svg {
+                    rotate: 180deg;
+                    stroke: $yellow;
+                }
+            }
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+            stroke: $green;
+            stroke-width: 2px;
+            transition: all 0.3s ease 0s;
+            pointer-events: none;
+        }
+    }
+}
+
+.form__fail {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -2;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+
+    &._fail {
+        opacity: 1;
+        z-index: 10;
+        pointer-events: all;
+        visibility: visible;
+
+        .form__fail-content {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        opacity: 0.4;
+        z-index: -1;
+    }
+
+    // .form__fail-body
+
+    &-body {
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    // .form__fail-content
+
+    &-content {
+        width: 100%;
+        max-width: 856px;
+        background-color: #ffffff;
+        border-radius: 30px;
+        position: relative;
+
+        transition: all 0.3s ease 0s;
+        transform: translate3d(0, 150px, 0);
+
+        @media (min-width: 769px) {
+            padding: 40px 40px 34px 40px;
+        }
+
+        @media (max-width: 992px) {
+            max-width: none;
+            width: calc(100% - 40px);
+            margin-inline: auto;
+        }
+
+        @media (max-width: 768px) {
+            border-radius: 20px;
+            @include adaptive-value("padding-top", 40, 104, 1);
+            @include adaptive-value("padding-left", 40, 16, 1);
+            @include adaptive-value("padding-right", 40, 16, 1);
+            @include adaptive-value("padding-bottom", 34, 106, 1);
+        }
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        span {
+            border: 3px solid $red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+
+            @media (min-width: 769px) {
+                width: 93px;
+                height: 93px;
+            }
+
+            @media (max-width: 768px) {
+                @include adaptive-value("width", 93, 70, 1);
+                @include adaptive-value("height", 93, 70, 1);
+                border-width: 2.25px;
+                margin-bottom: 31px;
+            }
+
+            svg {
+                stroke: $red;
+                stroke-width: 2.25px;
+
+                @media (min-width: 769px) {
+                    width: 38px;
+                    height: 28px;
+                }
+
+                @media (max-width: 768px) {
+                    @include adaptive-value("width", 38, 29, 1);
+                    @include adaptive-value("height", 28, 21, 1);
+                }
+            }
+        }
+
+        h5 {
+            font-style: normal;
+            font-weight: 700;
+            line-height: 1.44;
+            text-transform: uppercase;
+            color: $red;
+            margin-bottom: 25px;
+            @include adaptive-value("font-size", 32, 24, 1);
+
+            @media (max-width: 768px) {
+                margin-bottom: 24px;
+            }
+        }
+
+        p {
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.53;
+            text-align: center;
+            color: $gray-middle;
+            max-width: 84%;
+            @include adaptive-value("font-size", 17, 15, 1);
+        }
+    }
+
+    // .form__fail-close
+
+    &-close {
+        position: absolute;
+        right: 40px;
+        top: 32px;
+
+        @media (max-width: 768px) {
+            right: 32px;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                svg {
+                    rotate: 180deg;
+                    stroke: $yellow;
+                }
+            }
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+            stroke: $red;
+            stroke-width: 2px;
+            transition: all 0.3s ease 0s;
+            pointer-events: none;
+        }
+    }
+}
+
+.form-quote__result {
+    .form__fail,
+    .form__sent {
+        @include adaptive-value("margin-top", 102, 61, 1);
+        @include adaptive-value("margin-bottom", 144, 80, 1);
+
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        z-index: 1;
+        pointer-events: all;
+        display: none;
+
+        &._sent,
+        &._fail {
+            display: flex;
+        }
+
+        &:before {
+            display: none;
+        }
+
+        &-body {
+            overflow-y: unset;
+        }
+
+        &-content {
+            transform: translate3d(0, 0, 0);
+        }
     }
 }

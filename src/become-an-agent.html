@@ -60,47 +60,47 @@
                         contact with you shortly.</p>
                 </div>
 
-                <form action="#" class="form-request">
+                <form action="#" class="form-request" data-type="become-an-agent" data-formtitle="Become an agent">
                     <div class="form__grid">
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Name" name="name">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Last Name">
+                            <input type="text" placeholder="Last Name" name="last-name">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="email" class="form-email" placeholder="Email">
+                            <input type="email" class="form-email" placeholder="Email" name="email">
                             <div class="form__grid-item-validate"></div>
                             <span></span>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" class="form-phone" placeholder="Phone Number">
+                            <input type="text" class="form-phone" placeholder="Phone Number" name="phone">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" class="search-input" id="city" placeholder="City">
-                            <span></span>
-                            <div class="form__grid-item-validate"></div>
-                            <div class="form__select-select"></div>
-                        </div>
-                        <div class="form__grid-item">
-                            <input type="text" class="search-input" id="state" placeholder="State">
+                            <input type="text" class="search-input" id="city" placeholder="City" name="city">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                             <div class="form__select-select"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" maxlength="5" class="search-input" id="zip" placeholder="Zip">
+                            <input type="text" class="search-input" id="state" placeholder="State" name="state">
+                            <span></span>
+                            <div class="form__grid-item-validate"></div>
+                            <div class="form__select-select"></div>
+                        </div>
+                        <div class="form__grid-item">
+                            <input type="text" maxlength="5" class="search-input" id="zip" placeholder="Zip" name="zip">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
                         <div class="form__grid-item">
-                            <input type="text" placeholder="Company Website">
+                            <input type="text" placeholder="Company Website" name="company-website">
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
@@ -120,7 +120,7 @@
                                     <span data-value="150.000 tn">150.000 tn</span>
                                 </div>
                             </div>
-                            <input type="text" hidden class="user-linehaul">
+                            <input type="text" hidden class="user-linehaul" name="interstate-linehaul-volume">
                         </div>
 
                         <div class="form__grid-item">
@@ -137,7 +137,7 @@
                                     <span data-value="No">No</span>
                                 </div>
                             </div>
-                            <input type="text" hidden class="user-carrier">
+                            <input type="text" hidden class="user-carrier" name="affiliated">
                         </div>
 
                         <div class="form__grid-item">
@@ -155,11 +155,11 @@
                                     <span data-value="Partner 3">Partner 3</span>
                                 </div>
                             </div>
-                            <input type="text" hidden class="user-contact">
+                            <input type="text" hidden class="user-contact" name="interested">
                         </div>
 
                         <div class="form__grid-item item-textarea item-wullwidth">
-                            <textarea placeholder="Additional Comments"></textarea>
+                            <textarea placeholder="Additional Comments" name="msg"></textarea>
                             <span></span>
                             <div class="form__grid-item-validate"></div>
                         </div>
@@ -194,7 +194,7 @@
             <div class="form__sent-content">
                 <button class="form__sent-close">
                     <svg viewBox="0 0 18 18" fill="none">
-                        <path d="M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
                 <span>
@@ -210,6 +210,25 @@
             </div>
         </div>
     </div>
+    <div class="form__fail">
+        <div class="form__fail-body">
+            <div class="form__fail-content">
+                <button class="form__fail-close">
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span>
+                    <svg viewBox="0 0 18 18" fill="none">
+                        <path d="M17 1L1 17M1 1L17 17" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <h5>Failed!</h5>
+                <p>Plaease repeat later.</p>
+            </div>
+        </div>
+    </div>
+
 
     @@include("html/faq.html")
 

@@ -127,7 +127,7 @@
 
         &-pagination {
             display: none;
-            
+
             @media (max-width: 1024px) {
                 margin-top: 20px;
                 display: flex;
@@ -263,9 +263,7 @@
 
         @media (max-width: 768px) {
             display: block;
-            & > :nth-child(n + 4) {
-                display: none;
-            }
+          
 
             & > :not(:last-child) {
                 margin-bottom: 32px;
@@ -444,12 +442,6 @@
         & > :not(:last-child) {
             margin-bottom: 32px;
         }
-
-        @media (max-width: 768px) {
-            & > :nth-child(n + 4) {
-                display: none;
-            }
-        }
     }
 
     article {
@@ -472,9 +464,9 @@
             }
 
             div {
-                padding-top: 45px;
+                padding-top: 35px!important;
                 padding-left: 55px;
-                padding-bottom: 40px;
+                padding-bottom: 30px!important;
                 padding-right: 60px;
                 display: flex;
                 justify-content: center;

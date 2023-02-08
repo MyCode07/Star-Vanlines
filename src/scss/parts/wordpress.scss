@@ -1,0 +1,92 @@
+.wp-pagenavi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 56px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+    & > :not(:last-child) {
+        margin-right: 20px;
+    }
+
+    a,
+    span {
+        width: 48px;
+        height: 48px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.33;
+        color: $blue;
+        border: 1px solid $blue;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+
+        transition: all 0.3s ease 0s;
+
+        &.current {
+            background-color: $blue;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $blue;
+                color: #fff;
+                font-weight: 700;
+            }
+        }
+
+        &.nextpostslink,
+        &.previouspostslink {
+            background-color: none !important;
+            border: none !important;
+        }
+
+        &.previouspostslink {
+            svg {
+                rotate: 180deg;
+            }
+        }
+
+        svg {
+            transition: all 0.3s ease 0s;
+        }
+    }
+
+    &-prev,
+    &-next {
+        width: 48px;
+        height: 48px;
+        border: 1px solid currentColor;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $blue;
+        transition: all 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $blue;
+                color: #fff;
+            }
+        }
+
+        svg {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 2px;
+            transition: all 0.3s ease 0s;
+        }
+    }
+}

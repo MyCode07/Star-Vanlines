@@ -1,8 +1,7 @@
 "use strict"
 
 import dhx from 'dhx-calendar';
-import { Country, State, City } from 'country-state-city';
-
+const url = 'https://starvanlines.test-yeremyan.site/wp-content/themes/starvanline/assets/files/send-simple.php';
 
 // /get-a-quote.html
 // /contacts.html
@@ -11,73 +10,63 @@ import { Country, State, City } from 'country-state-city';
 // /shipment-tracking.html
 // /work-for-us.html
 
-const formSent = document.querySelector('.form-sent');
-
 document.addEventListener('DOMContentLoaded', function () {
-    const forms = document.querySelectorAll('form');
+
+    const forms = Array.from([...document.querySelectorAll('.form form')].concat([...document.querySelectorAll('.whatis form')]));
+
 
     function formValidate(form) {
-        let error = 0;
         let formReq = [...form.querySelectorAll('input')]
 
 
         formReq.forEach(input => {
-            if (input.type !== 'submit' && input.type !== 'checkbox') {
-                if (!input.hasAttribute('hidden')) {
+            if (input.type !== 'submit' && input.type !== 'checkbox' && !input.classList.contains('formname')) {
+                input.addEventListener('input', function () {
+                    formRemoveError(input);
+                    validateInput(input)
+                })
 
-                    input.addEventListener('input', function () {
-                        if (input.classList.contains('search-input')) {
+                const inputParent = input.closest('.form__grid-item')
+                const selectTitle = inputParent.querySelector('.form__select-title')
 
+                if (selectTitle) {
+                    const span = selectTitle.querySelector('span');
+                    selectTitle.addEventListener('click', function () {
+                        this.classList.toggle('_open')
+                        if (span.dataset.value == '' || !span.dataset.value) {
+                            span.textContent = span.dataset.title
                         }
                         else {
-                            formRemoveError(input);
-                            validateInput(input, error)
+                            if (this.classList.contains('_open')) {
+                                span.textContent = span.dataset.title
+                            }
+                            else {
+                                span.textContent = span.dataset.value
+                            }
                         }
                     })
                 }
-                else {
-                    const inputParent = input.closest('.form__grid-item')
-                    const selectTitle = inputParent.querySelector('.form__select-title')
 
-                    if (selectTitle) {
-                        const span = selectTitle.querySelector('span');
-                        selectTitle.addEventListener('click', function () {
-                            this.classList.toggle('_open')
-                            if (span.dataset.value == '' || !span.dataset.value) {
+                const dateTitle = inputParent.querySelector('.form__date-title')
+                if (dateTitle) {
+                    const span = dateTitle.querySelector('span');
+                    dateTitle.addEventListener('click', function () {
+                        this.classList.toggle('_open')
+
+                        if (span.dataset.value == '' || !span.dataset.value) {
+                            span.textContent = span.dataset.title
+                        }
+                        else {
+                            if (this.classList.contains('_open')) {
                                 span.textContent = span.dataset.title
                             }
                             else {
-                                if (this.classList.contains('_open')) {
-                                    span.textContent = span.dataset.title
-                                }
-                                else {
-                                    span.textContent = span.dataset.value
-                                }
+                                span.textContent = span.dataset.value
                             }
-                        })
-                    }
-
-                    const dateTitle = inputParent.querySelector('.form__date-title')
-                    if (dateTitle) {
-                        const span = dateTitle.querySelector('span');
-                        dateTitle.addEventListener('click', function () {
-                            this.classList.toggle('_open')
-
-                            if (span.dataset.value == '' || !span.dataset.value) {
-                                span.textContent = span.dataset.title
-                            }
-                            else {
-                                if (this.classList.contains('_open')) {
-                                    span.textContent = span.dataset.title
-                                }
-                                else {
-                                    span.textContent = span.dataset.value
-                                }
-                            }
-                        })
-                    }
-
+                        }
+                    })
                 }
+
             }
             else if (input.type == 'checkbox') {
                 if (input.id == 'flexible-date') {
@@ -94,74 +83,129 @@ document.addEventListener('DOMContentLoaded', function () {
         })
 
 
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
-            // if errer = -1 form is valid and can be sent
 
+            let error = 0;
             formReq.forEach(input => {
-                if (input.type !== 'submit' && input.type !== 'checkbox') {
-                    validateInput(input, error)
+                if (input.type !== 'submit' && input.type !== 'checkbox' && !input.classList.contains('formname')) {
+                    error += validateInput(input) + 1
+
                 }
             })
 
-        })
+            let formData = new FormData(form);
 
+            if (error === 0) {
+                form.classList.add('_sending');
+                let response = await fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                });
+                if (response.ok) {
+                    document.querySelector('.form__sent').classList.add('_sent');
+                    form.reset();
+                    form.classList.remove('_sending');
+
+                    if (form.dataset.type && form.dataset.type == "get-a-quote") {
+                        form.closest('section').remove();
+                        document.querySelector('.form__sent').classList.add('_sent');
+                    }
+                }
+                else {
+                    document.querySelector('.form__fail').classList.add('_fail');
+                    form.classList.remove('_sending');
+
+                    if (form.dataset.type && form.dataset.type == "get-a-quote") {
+                        form.closest('section').remove();
+                        document.querySelector('.form__fail').classList.add('_fail');
+                    }
+                }
+                console.log(response);
+            }
+        })
+    }
+
+    if (forms.length) {
+        forms.forEach(item => {
+            formValidate(item)
+        })
+    }
+
+    function validateInput(input) {
+        let error = 0;
+
+        if (!input.classList.contains('formname')) {
+            if (input.classList.contains('form-email')) {
+                if (emailTest(input)) {
+                    formAddError(input);
+                    error++;
+                }
+                else {
+                    formAddValid(input);
+                    formRemoveError(input);
+                    error--;
+                }
+            }
+            else if (input.classList.contains('form-phone')) {
+                if (/[_]/.test(input.value) || input.value.length < 14) {
+                    formAddError(input);
+                    error++;
+                }
+                else {
+                    formAddValid(input);
+                    formRemoveError(input);
+                    error--;
+                }
+            }
+            else {
+                if (input.id == 'zip') {
+                    const form = input.closest('form')
+                    const city = form.querySelector('input#city')
+                    const state = form.querySelector('input#state')
+                    if (input.value.length == 5) {
+
+                        if (city.dataset.zip && city.dataset.zip != '') {
+                            city.dataset.zip
+                            formRemoveError(input);
+                            formAddValid(input);
+
+                            formRemoveError(city);
+                            formAddValid(city);
+                            formRemoveError(state);
+                            formAddValid(state);
+
+                            error--;
+                        }
+                        else {
+                            formAddError(input);
+                            formAddError(city);
+                            formAddError(state);
+
+                            error++;
+                        }
+
+                    }
+                    else {
+                        formAddError(input);
+                        error--;
+                    }
+                }
+                else {
+                    if (input.value.length < 2) {
+                        formAddError(input);
+                        error++;
+                    }
+                    else {
+                        formAddValid(input);
+                        formRemoveError(input);
+                        error--;
+                    }
+                }
+            }
+        }
         return error;
     }
-
-    forms.forEach(item => {
-        formValidate(item)
-    })
-
-
-    function validateInput(input, error) {
-        if (input.classList.contains('form-email')) {
-            if (emailTest(input)) {
-                formAddError(input);
-                error++;
-            }
-            else {
-                formRemoveError(input);
-                error--;
-            }
-        }
-
-        else if (input.classList.contains('form-phone')) {
-            if (/[_]/.test(input.value) || input.value.length < 14) {
-                formAddError(input);
-                error++;
-            }
-            else {
-                formRemoveError(input);
-                error--;
-            }
-        }
-
-        else {
-            if (input.id == 'zip') {
-                if (input.value.length < 5) {
-                    formAddError(input);
-                    error++;
-                }
-                else {
-                    formRemoveError(input);
-                    error--;
-                }
-            }
-            else {
-                if (input.value.length < 2) {
-                    formAddError(input);
-                    error++;
-                }
-                else {
-                    formRemoveError(input);
-                    error--;
-                }
-            }
-
-        }
-    }
-
 
     function formAddError(input) {
         input.closest('.form__grid-item').classList.remove('_valid');
@@ -170,6 +214,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function formRemoveError(input) {
         input.closest('.form__grid-item').classList.remove('_error');
+    }
+
+    function formAddValid(input) {
         input.closest('.form__grid-item').classList.add('_valid');
     }
 
@@ -187,8 +234,23 @@ document.addEventListener('click', function (e) {
             dateTitle.classList.remove('_open')
         }
     }
-})
 
+    if (targetEl.hasAttribute('data-value') && targetEl.closest('.form__select-select')) {
+        const form = targetEl.closest('form');
+        const formItem = targetEl.closest('.form__grid-item');
+        formItem.classList.remove('_error');
+        formItem.classList.add('_valid');
+
+        let cityInput = formItem.querySelector('input#city');
+
+        if (cityInput) {
+            form.querySelectorAll('input.search-input').forEach(inp => {
+                inp.closest('.form__grid-item').classList.remove('_error');
+                inp.closest('.form__grid-item').classList.add('_valid');
+            })
+        }
+    }
+})
 
 const firstDate = new Date();
 const secondDate = new Date(Date.now() + 1000000000);
