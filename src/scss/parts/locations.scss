@@ -1,5 +1,5 @@
 .locations {
-    @include adaptive-value("margin-bottom", 22, 67, 1);
+    @include adaptive-value("margin-bottom", 96, 67, 1);
 
     // .locations__container
 
@@ -74,7 +74,7 @@
             flex-wrap: wrap;
             @include adaptive-value("margin-left", -10, -5, 1);
 
-            a {
+            a,span {
                 @include adaptive-value("margin-inline", 10, 5, 1);
 
                 width: fit-content;

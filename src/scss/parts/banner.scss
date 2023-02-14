@@ -286,17 +286,34 @@
             line-height: 1.6;
             color: #ffffff;
 
-            a,strong {
+            a,
+            strong {
                 font-weight: 600;
             }
 
             span {
                 display: block;
-
             }
 
             time {
                 display: block;
+            }
+        }
+    }
+
+    // .banner-social
+
+    &-social {
+        .banner__bottom-social {
+            justify-content: space-between;
+            align-items: flex-end;
+
+            @media (max-width: 500px) {
+                .socilas {
+                    margin-top: 20px;
+                    margin-bottom: -20px;
+                    justify-content: flex-end;
+                }
             }
         }
     }

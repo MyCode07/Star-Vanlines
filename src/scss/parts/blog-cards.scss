@@ -218,13 +218,45 @@
             h3 {
                 margin-bottom: 23px;
 
-                @media (max-width:768px){
+                font-style: normal;
+                font-weight: 800;
+                font-size: 24px;
+                line-height: 1.33;
+                text-transform: uppercase;
+                color: $yellow;
+                @include adaptive-value("font-size", 24, 17, 1);
+
+                display: flex;
+                transition: all 0.3s ease 0s;
+
+                @media (max-width: 768px) {
+                    color: $gray-dark;
+                    display: block;
+                    font-weight: 600;
+                    line-height: 1.41;
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            color: $yellow;
+                        }
+                    }
+                }
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: $blue;
+
+                        span {
+                            color: $yellow;
+                        }
+                    }
+                }
+
+                @media (max-width: 768px) {
                     margin-bottom: 17px;
                 }
 
                 span {
-                    
-
                     @media (max-width: 768px) {
                         display: block;
                         position: absolute;
