@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('.form__sent').classList.add('_sent');
                     form.reset();
                     form.classList.remove('_sending');
+                    resetForm()
 
                     if (form.dataset.type && form.dataset.type == "get-a-quote") {
                         form.closest('section').remove();
@@ -115,13 +116,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 else {
                     document.querySelector('.form__fail').classList.add('_fail');
                     form.classList.remove('_sending');
+                    resetForm()
 
                     if (form.dataset.type && form.dataset.type == "get-a-quote") {
                         form.closest('section').remove();
                         document.querySelector('.form__fail').classList.add('_fail');
                     }
                 }
-                console.log(response);
             }
         })
     }
@@ -222,6 +223,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function emailTest(input) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+    }
+
+    function resetForm() {
+        document.querySelectorAll('.form__grid-item').forEach(item => {
+            if (item.classList.contains('_valid')) {
+                item.classList.remove('_valid')
+            }
+            const titles = document.querySelectorAll('.form__select-title span');
+            if (titles.length) {
+                titles.forEach(title => {
+                    title.textContent = title.dataset.title;
+                })
+            }
+        });
     }
 });
 
